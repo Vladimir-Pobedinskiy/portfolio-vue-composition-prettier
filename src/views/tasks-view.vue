@@ -1,49 +1,3 @@
-<template>
-	<div class="tasks-view offset-page-br">
-		<template v-if="isLoading">
-			<AppLoading :is-loading="isLoading" />
-		</template>
-		<template v-else>
-			<div class="container">
-				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
-				<h1 class="tasks-view__title title h1">{{ description.title }}</h1>
-
-				<ul class="description-list">
-					<li class="description-item p1" v-for="(item, i) in description.descriptionList" :key="i">{{ item }}</li>
-				</ul>
-
-				<section class="tasks-view__section offset">
-					<h2 class="tasks-view__title title h1">Список задач</h2>
-
-					<div class="tasks-view__form-wrapper">
-						<form class="tasks-view__form" @submit.prevent="onSubmit">
-							<textarea
-								v-model="textareaValue"
-								class="tasks-view__form-textarea"
-								placeholder="Введите новую задачу"
-								required
-							></textarea>
-							<TaskTagList :tags="tags" @handleSelectedTags="handleSelectedTags" />
-							<button class="tasks-view__form-btn btn" :disabled="!textareaValue.trim()" type="submit">
-								Add new task
-							</button>
-						</form>
-					</div>
-
-					<div v-auto-animate="{ duration: 200 }" class="tasks-view__task-list-wrapper">
-						<template v-if="taskList.length">
-							<TaskList :task-list="taskList" @deleteCurrentTask="deleteCurrentTask" />
-						</template>
-						<template v-else>
-							<p class="h3">Список задач пуст! Введите вашу первую задачу!</p>
-						</template>
-					</div>
-				</section>
-			</div>
-		</template>
-	</div>
-</template>
-
 <script>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
@@ -132,6 +86,52 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="tasks-view offset-page-br">
+		<template v-if="isLoading">
+			<AppLoading :is-loading="isLoading" />
+		</template>
+		<template v-else>
+			<div class="container">
+				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
+				<h1 class="tasks-view__title title h1">{{ description.title }}</h1>
+
+				<ul class="description-list">
+					<li class="description-item p1" v-for="(item, i) in description.descriptionList" :key="i">{{ item }}</li>
+				</ul>
+
+				<section class="tasks-view__section offset">
+					<h2 class="tasks-view__title title h1">Список задач</h2>
+
+					<div class="tasks-view__form-wrapper">
+						<form class="tasks-view__form" @submit.prevent="onSubmit">
+							<textarea
+								v-model="textareaValue"
+								class="tasks-view__form-textarea"
+								placeholder="Введите новую задачу"
+								required
+							></textarea>
+							<TaskTagList :tags="tags" @handleSelectedTags="handleSelectedTags" />
+							<button class="tasks-view__form-btn btn" :disabled="!textareaValue.trim()" type="submit">
+								Add new task
+							</button>
+						</form>
+					</div>
+
+					<div v-auto-animate="{ duration: 200 }" class="tasks-view__task-list-wrapper">
+						<template v-if="taskList.length">
+							<TaskList :task-list="taskList" @deleteCurrentTask="deleteCurrentTask" />
+						</template>
+						<template v-else>
+							<p class="h3">Список задач пуст! Введите вашу первую задачу!</p>
+						</template>
+					</div>
+				</section>
+			</div>
+		</template>
+	</div>
+</template>
 
 <style lang="scss">
 .tasks-view {

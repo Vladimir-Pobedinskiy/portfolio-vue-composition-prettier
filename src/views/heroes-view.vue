@@ -1,23 +1,3 @@
-<template>
-	<div class="heroes-view offset-page-br">
-		<template v-if="isLoading">
-			<AppLoading :is-loading="isLoading" />
-		</template>
-		<template v-else>
-			<div class="container">
-				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
-				<h1 class="heroes-view__title title h1">{{ description.title }}</h1>
-
-				<ul class="description-list">
-					<li class="description-item p1" v-for="(item, i) in description.descriptionList" :key="i">{{ item }}</li>
-				</ul>
-
-				<HeroSlider :hero-list="heroList" />
-			</div>
-		</template>
-	</div>
-</template>
-
 <script>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
@@ -64,3 +44,23 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="heroes-view offset-page-br">
+		<template v-if="isLoading">
+			<AppLoading :is-loading="isLoading" />
+		</template>
+		<template v-else>
+			<div class="container">
+				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
+				<h1 class="heroes-view__title title h1">{{ description.title }}</h1>
+
+				<ul class="description-list">
+					<li class="description-item p1" v-for="(item, i) in description.descriptionList" :key="i">{{ item }}</li>
+				</ul>
+
+				<HeroSlider :hero-list="heroList" />
+			</div>
+		</template>
+	</div>
+</template>

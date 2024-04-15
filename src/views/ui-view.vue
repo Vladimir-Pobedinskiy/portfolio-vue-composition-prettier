@@ -1,41 +1,3 @@
-<template>
-	<div class="ui-view offset-page-br">
-		<template v-if="isLoading">
-			<AppLoading :is-loading="isLoading" />
-		</template>
-		<template v-else>
-			<div class="container">
-				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
-				<h1 class="ui-view__title title h1">{{ description.title }}</h1>
-				<ul class="description-list">
-					<li class="description-item p1" v-for="(item, i) in description.descriptionList" :key="i">{{ item }}</li>
-				</ul>
-			</div>
-
-			<section class="ui-view__tabs offset">
-				<div class="container">
-					<h2 class="ui-view__tabs-title section-title h2">{{ tabs.title }}</h2>
-					<UIViewTabs :tabs-nav="tabs.tabsNav" />
-				</div>
-			</section>
-
-			<section class="ui-view__marquee offset">
-				<div class="container">
-					<h2 class="ui-view__marquee-title section-title h2">{{ marquee.title }}</h2>
-				</div>
-				<UIViewMarquee :marquee-images="marquee.marqueeImages" />
-			</section>
-
-			<section class="ui-view__accordion offset">
-				<div class="container">
-					<h2 class="ui-view__accordion-title section-title h2">{{ accordion.title }}</h2>
-					<UIAccordionView :accordion-list="accordion.accordionList" />
-				</div>
-			</section>
-		</template>
-	</div>
-</template>
-
 <script>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
@@ -89,3 +51,41 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="ui-view offset-page-br">
+		<template v-if="isLoading">
+			<AppLoading :is-loading="isLoading" />
+		</template>
+		<template v-else>
+			<div class="container">
+				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
+				<h1 class="ui-view__title title h1">{{ description.title }}</h1>
+				<ul class="description-list">
+					<li class="description-item p1" v-for="(item, i) in description.descriptionList" :key="i">{{ item }}</li>
+				</ul>
+			</div>
+
+			<section class="ui-view__tabs offset">
+				<div class="container">
+					<h2 class="ui-view__tabs-title section-title h2">{{ tabs.title }}</h2>
+					<UIViewTabs :tabs-nav="tabs.tabsNav" />
+				</div>
+			</section>
+
+			<section class="ui-view__marquee offset">
+				<div class="container">
+					<h2 class="ui-view__marquee-title section-title h2">{{ marquee.title }}</h2>
+				</div>
+				<UIViewMarquee :marquee-images="marquee.marqueeImages" />
+			</section>
+
+			<section class="ui-view__accordion offset">
+				<div class="container">
+					<h2 class="ui-view__accordion-title section-title h2">{{ accordion.title }}</h2>
+					<UIAccordionView :accordion-list="accordion.accordionList" />
+				</div>
+			</section>
+		</template>
+	</div>
+</template>

@@ -1,14 +1,3 @@
-<template>
-	<div class="home-view offset-page">
-		<div class="container">
-			<h1 class="home-view__title title h1">{{ description.title }}</h1>
-			<ul class="description-list">
-				<li class="description-item p1" v-for="(item, i) in description.descriptionList" :key="i">{{ item }}</li>
-			</ul>
-		</div>
-	</div>
-</template>
-
 <script>
 export default {
 	name: 'HomeView',
@@ -34,3 +23,14 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="home-view offset-page">
+		<div class="container">
+			<h1 class="home-view__title title h1">{{ description.title }}</h1>
+			<ul class="description-list">
+				<li class="description-item p1" v-for="(item, i) in description.descriptionList" :key="i">{{ item }}</li>
+			</ul>
+		</div>
+	</div>
+</template>

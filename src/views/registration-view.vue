@@ -1,3 +1,11 @@
+<script>
+import AuthSignUpPhysical from '@/components/Auth/SignUpPhysical'
+export default {
+	name: 'RegistrationView',
+	components: { AuthSignUpPhysical }
+}
+</script>
+
 <template>
 	<section class="registration-page offset-page">
 		<div class="container-auth">
@@ -9,14 +17,6 @@
 		</div>
 	</section>
 </template>
-
-<script>
-import AuthSignUpPhysical from '@/components/Auth/SignUpPhysical'
-export default {
-	name: 'RegistrationView',
-	components: { AuthSignUpPhysical }
-}
-</script>
 
 <style lang="scss">
 .registration-page {

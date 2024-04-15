@@ -1,3 +1,9 @@
+<script>
+export default {
+	name: 'NotFoundView'
+}
+</script>
+
 <template>
 	<div class="not-found-view">
 		<div class="not-found-view__inner">
@@ -13,12 +19,6 @@
 		</div>
 	</div>
 </template>
-
-<script>
-export default {
-	name: 'NotFoundView'
-}
-</script>
 
 <style lang="scss">
 .not-found-view {

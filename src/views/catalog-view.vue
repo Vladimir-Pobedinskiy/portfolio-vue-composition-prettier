@@ -1,51 +1,3 @@
-<template>
-	<div class="catalog-page offset-page-br">
-		<template v-if="isLoading">
-			<AppLoading :is-loading="isLoading" />
-		</template>
-		<template v-else>
-			<div class="container">
-				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
-				<h1 class="visually-hidden">Каталог</h1>
-
-				<section class="catalog-page__content">
-					<div class="catalog-page__content-top">
-						<h2 class="catalog-page__content-title h1">Каталог героев</h2>
-					</div>
-
-					<div class="catalog-page__content-inner">
-						<div class="catalog-page__left-side">
-							<template v-if="filters.length > 0 && range.length > 0">
-								<CatalogFilters :range="range" :filters="filters" :products-amount="productTotal" />
-							</template>
-						</div>
-
-						<div class="catalog-page__right-side">
-							<template v-if="isLoadingLocal">
-								<AppLoading :is-loading-local="isLoadingLocal" />
-							</template>
-							<template v-else>
-								<div class="catalog-page__sort-wrapper sort-wrapper">
-									<CatalogSort :sort="sort" />
-								</div>
-								<template v-if="products.length > 0">
-									<CatalogFeed :products="products" />
-									<div v-if="pageTotal" class="pagination-wrapper">
-										<UIPagination :page-total="pageTotal" @more="onMore" />
-									</div>
-								</template>
-								<template v-else>
-									<h2 class="h3">Товаров не найдено.</h2>
-								</template>
-							</template>
-						</div>
-					</div>
-				</section>
-			</div>
-		</template>
-	</div>
-</template>
-
 <script>
 import { ref, computed, watch } from 'vue'
 import { useStore } from 'vuex'
@@ -153,6 +105,54 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="catalog-page offset-page-br">
+		<template v-if="isLoading">
+			<AppLoading :is-loading="isLoading" />
+		</template>
+		<template v-else>
+			<div class="container">
+				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
+				<h1 class="visually-hidden">Каталог</h1>
+
+				<section class="catalog-page__content">
+					<div class="catalog-page__content-top">
+						<h2 class="catalog-page__content-title h1">Каталог героев</h2>
+					</div>
+
+					<div class="catalog-page__content-inner">
+						<div class="catalog-page__left-side">
+							<template v-if="filters.length > 0 && range.length > 0">
+								<CatalogFilters :range="range" :filters="filters" :products-amount="productTotal" />
+							</template>
+						</div>
+
+						<div class="catalog-page__right-side">
+							<template v-if="isLoadingLocal">
+								<AppLoading :is-loading-local="isLoadingLocal" />
+							</template>
+							<template v-else>
+								<div class="catalog-page__sort-wrapper sort-wrapper">
+									<CatalogSort :sort="sort" />
+								</div>
+								<template v-if="products.length > 0">
+									<CatalogFeed :products="products" />
+									<div v-if="pageTotal" class="pagination-wrapper">
+										<UIPagination :page-total="pageTotal" @more="onMore" />
+									</div>
+								</template>
+								<template v-else>
+									<h2 class="h3">Товаров не найдено.</h2>
+								</template>
+							</template>
+						</div>
+					</div>
+				</section>
+			</div>
+		</template>
+	</div>
+</template>
 
 <style lang="scss">
 .catalog-page {

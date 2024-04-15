@@ -1,3 +1,11 @@
+<script>
+import AuthLogin from '@/components/Auth/Login'
+export default {
+	name: 'LoginView',
+	components: { AuthLogin }
+}
+</script>
+
 <template>
 	<div class="login-page offset-page">
 		<div class="container-auth">
@@ -10,13 +18,6 @@
 	</div>
 </template>
 
-<script>
-import AuthLogin from '@/components/Auth/Login'
-export default {
-	name: 'LoginView',
-	components: { AuthLogin }
-}
-</script>
 <style lang="scss">
 .login-page {
 	width: 100%;
