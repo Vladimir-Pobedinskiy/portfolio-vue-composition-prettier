@@ -30,12 +30,14 @@
 						</form>
 					</div>
 
-					<template v-if="taskList.length">
-						<TaskList :task-list="taskList" @deleteCurrentTask="deleteCurrentTask" />
-					</template>
-					<template v-else>
-						<p class="h3">Список задач пуст! Введите вашу первую задачу!</p>
-					</template>
+					<div v-auto-animate="{ duration: 200 }" class="tasks-view__task-list-wrapper">
+						<template v-if="taskList.length">
+							<TaskList :task-list="taskList" @deleteCurrentTask="deleteCurrentTask" />
+						</template>
+						<template v-else>
+							<p class="h3">Список задач пуст! Введите вашу первую задачу!</p>
+						</template>
+					</div>
 				</section>
 			</div>
 		</div>
