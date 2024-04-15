@@ -1,0 +1,243 @@
+.btn {
+	padding: 10px 14px;
+	width: 100%;
+	outline: transparent;
+	border-radius: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-family: $font;
+	font-size: 14px;
+	font-weight: 450;
+	line-height: 1.4;
+	background-color: $color-gray-dark;
+	color: $color-white;
+	transition:
+		background-color 0.4s ease,
+		color 0.4s ease;
+
+	@media (min-width: $mobile-big) {
+		padding: 12px 24px;
+		width: fit-content;
+		font-weight: 450;
+		font-size: 18px;
+		line-height: 1.35;
+	}
+
+	@media (min-width: $desktop-small) {
+		&:hover {
+			background-color: $color-black;
+			transition: background-color 0.4s ease;
+		}
+	}
+
+	&:active {
+		background-color: $color-black;
+		transition: background-color 0.4s ease;
+	}
+
+	&:disabled {
+		background-color: $color-gray-disabled;
+		color: $color-gray-light;
+		cursor: default;
+		transition:
+			background-color 0.4s ease,
+			color 0.4s ease;
+	}
+
+	&.disabled {
+		background-color: $color-gray-disabled;
+		color: $color-gray-light;
+		cursor: default;
+		transition:
+			background-color 0.4s ease,
+			color 0.4s ease;
+	}
+
+	// btn-small
+	&.btn-small {
+		min-height: 42px;
+		padding: 8px 16px;
+		font-size: 16px;
+		line-height: 1.4;
+
+		@media (min-width: $mobile-big) {
+			line-height: 1.35;
+		}
+	}
+}
+
+// btn-secondary
+
+.btn-secondary {
+	padding: 10px 14px;
+	width: 100%;
+	outline: transparent;
+	border-radius: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-family: $font;
+	font-size: 14px;
+	font-weight: 450;
+	line-height: 1.4;
+	background-color: $color-white;
+	color: $color-gray-dark;
+	border: 1px solid $color-gray-dark;
+	transition:
+		background-color 0.4s ease,
+		color 0.4s ease,
+		border-color 0.4s ease;
+
+	svg {
+		margin-left: 8px;
+		width: 20px;
+		height: 20px;
+		fill: $color-gray-dark;
+		transition:
+			fill 0.4s ease,
+			transform 0.4s ease;
+	}
+
+	@media (min-width: $mobile-big) {
+		padding: 12px 24px;
+		font-weight: 450;
+		font-size: 18px;
+		line-height: 1.35;
+		width: fit-content;
+
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	@media (min-width: $desktop-small) {
+		&:hover {
+			background-color: $color-gray-dark;
+			color: $color-white;
+			transition:
+				background-color 0.4s ease,
+				color 0.4s ease;
+
+			svg {
+				fill: $color-white;
+				transform: translate(4px, -4px);
+				transition:
+					fill 0.4s ease,
+					transform 0.4s ease;
+			}
+		}
+	}
+
+	&:active {
+		background-color: $color-gray-dark;
+		color: $color-white;
+		transition:
+			background-color 0.4s ease,
+			color 0.4s ease,
+			fill 0.4s ease;
+
+		svg {
+			fill: $color-white;
+			transition:
+				fill 0.4s ease,
+				transform 0.4s ease;
+		}
+	}
+
+	&:disabled {
+		background-color: $color-white;
+		color: $color-gray-light;
+		border-color: $color-gray-light;
+		cursor: default;
+		transition:
+			background-color 0.4s ease,
+			color 0.4s ease,
+			border-color 0.4s ease;
+
+		svg {
+			fill: $color-gray-light;
+			transition: fill 0.4s ease;
+		}
+	}
+
+	&.disabled {
+		background-color: $color-white;
+		color: $color-gray-light;
+		border-color: $color-gray-light;
+		cursor: default;
+		transition:
+			background-color 0.4s ease,
+			color 0.4s ease,
+			border-color 0.4s ease;
+
+		svg {
+			fill: $color-gray-light;
+			transition: fill 0.4s ease;
+		}
+	}
+
+	&.active {
+		background-color: $color-gray-dark;
+		color: $color-white;
+		transition:
+			background-color 0.4s ease,
+			color 0.4s ease,
+			fill 0.4s ease;
+
+		svg {
+			fill: $color-white;
+			transition:
+				fill 0.4s ease,
+				transform 0.4s ease;
+		}
+	}
+
+	// btn-secondary-small
+	&.btn-secondary-small {
+		min-height: 42px;
+		padding: 8px 16px;
+		font-size: 16px;
+		line-height: 1.4;
+
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.btn-orange {
+	display: block;
+	margin-top: auto;
+	padding: 8px 16px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-family: $font;
+	font-size: 16px;
+	font-weight: 450;
+	line-height: 1.4;
+	border: 1px solid $color-orange;
+	border-radius: 16px;
+	background-color: $color-orange;
+	color: $color-white;
+	transition:
+		background-color 0.3s ease,
+		border-color 0.3s ease;
+
+	@media (min-width: $desktop) {
+		&:hover {
+			border-color: $color-orange-hover;
+			background-color: $color-orange-hover;
+			transition:
+				background-color 0.3s ease,
+				border-color 0.3s ease;
+		}
+	}
+}

@@ -1,0 +1,51 @@
+$mobile: 480px;
+$mobile-big: 576px;
+$tablet: 768px;
+$tablet-big: 992px;
+$desktop-small: 1024px;
+$desktop: 1200px;
+$desktop-big: 1400px;
+
+$full-hd-display: 1920px;
+$two-k-display: 2560px;
+$four-k-display: 3840px;
+
+$mobile-for-maxWidth: 479px;
+$mobile-big-for-maxWidth: 575px;
+$tablet-for-maxWidth: 767px;
+$tablet-big-for-maxWidth: 991px;
+$desktop-small-for-maxWidth: 1023px;
+$desktop-for-maxWidth: 1199px;
+$desktop-big-for-maxWidth: 1399px;
+
+$font: 'Futura', 'Arial', sans-serif;
+$font-for-title: 'TTBells', 'Arial', sans-serif;
+
+$color-black: #000000;
+$color-white: #ffffff;
+
+$color-gray: #464646;
+$color-gray-dark: #151719;
+$color-gray-medium: #7d7d7d;
+$color-gray-light: #9e9e9e;
+$color-gray-lighter: #f8f8f8;
+$color-gray-disabled: rgba(199, 199, 199, 50%);
+$color-orange: #ec9b4a;
+$color-orange-hover: #ec7b4a;
+$bg: #f9f9f9;
+$color-violet: #444ce0;
+
+$color-success: #0b873e;
+$color-success-light: #e7fff1;
+$color-error: #f80505;
+$color-error-light: #ffefef;
+
+$color-viber: #615eee;
+$color-instagram: #d82d7e;
+$color-vk: #0077ff;
+$color-whatsapp: #27b43d;
+$color-telegram: #00b2ff;
+$color-vue: #3eaf7c;
+
+$container-width: 1392px;
+$paddingOffset: max(16px, calc((100% - 1240px) / 2));

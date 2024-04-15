@@ -1,0 +1,13 @@
+# Ignored directories
+node_modules/
+dist/
+public/
+coverage/
+output/
+output.json
+
+# Ignored files
+*.log*
+*.tmp
+*.cache
+*.env

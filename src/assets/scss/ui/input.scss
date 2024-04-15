@@ -1,0 +1,270 @@
+.label-wrap {
+	margin-bottom: 18px;
+	position: relative;
+	height: 44px;
+
+	@media (min-width: $mobile-big) {
+		height: 56px;
+	}
+
+	&.disabled {
+		.label__input,
+		.label__textarea {
+			border-color: $color-gray-light;
+			background-color: $color-white;
+			transition:
+				border-color 0.3s ease,
+				background-color 0.3s ease;
+		}
+
+		.label__input-title,
+		.label__textarea-title {
+			color: $color-gray-light;
+		}
+	}
+
+	&.error {
+		margin-bottom: 32px;
+
+		.label__input,
+		.label__textarea {
+			border-color: $color-error;
+			background-color: $color-error-light;
+			transition:
+				border-color 0.3s ease,
+				background-color 0.3s ease;
+
+			&:disabled {
+				border-color: $color-gray-light;
+				background-color: $color-white;
+				transition:
+					border-color 0.3s ease,
+					background-color 0.3s ease;
+
+				.label__input-title,
+				.label__textarea-title {
+					color: $color-gray-light;
+				}
+			}
+		}
+
+		.label__input-title {
+			@media (min-width: $mobile-big) {
+				top: 28px;
+			}
+		}
+
+		.label__textarea-title {
+			top: 8px;
+		}
+	}
+
+	&.label-wrap-small {
+		height: 44px;
+
+		.label__input {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 1.4;
+			transition:
+				border-color 0.3s ease,
+				background-color 0.3s ease;
+
+			&:disabled {
+				border-color: $color-gray-light;
+				background-color: $color-white;
+				transition:
+					border-color 0.3s ease,
+					background-color 0.3s ease;
+
+				.label__input-title {
+					color: $color-gray-light;
+				}
+			}
+		}
+
+		.label__input-title {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.4;
+			color: $color-gray-light;
+		}
+
+		.label__input:focus + .label__input-title,
+		.label__input:not(:placeholder-shown) + .label__input-title {
+			transform: translateY(-18px);
+		}
+
+		&.error {
+			.label__input-title {
+				top: 22px;
+			}
+		}
+	}
+}
+
+.label {
+	&__input {
+		padding: 23px 16px 8px;
+		width: 100%;
+		height: 100%;
+		border: 1px solid $color-gray-light;
+		background-color: $color-white;
+		color: $color-black;
+		outline: transparent;
+		border-radius: 16px;
+		transition: border-color 0.4s ease-in-out;
+
+		&:hover {
+			border-color: $color-black;
+			transition: border-color 0.4s ease-in-out;
+		}
+
+		&:active,
+		&:focus {
+			border-color: $color-black;
+			transition: border-color 0.4s ease-in-out;
+		}
+	}
+
+	&__input-title {
+		position: absolute;
+		left: 16px;
+		top: 50%;
+		transform: translateY(-50%);
+		background-color: transparent;
+		color: $color-gray-light;
+		cursor: text;
+		will-change: transform, font-size;
+		transition:
+			transform 0.3s ease-in-out,
+			font-size 0.3s ease;
+	}
+
+	&__input:focus + &__input-title,
+	&__input:not(:placeholder-shown) + &__input-title {
+		transform: translateY(-20px);
+		font-size: 12px;
+		transition:
+			transform 0.3s ease-in-out,
+			font-size 0.3s ease;
+
+		@media (min-width: $mobile-big) {
+			transform: translateY(-23px);
+		}
+	}
+
+	&__textarea:focus + &__textarea-title,
+	&__textarea:not(:placeholder-shown) + &__textarea-title {
+		transform: translateY(-8px);
+		font-size: 12px;
+		transition:
+			transform 0.3s ease-in-out,
+			font-size 0.3s ease;
+	}
+}
+
+.error-message {
+	padding-top: 2px;
+	padding-left: 6px;
+	color: $color-error;
+	transition: color 0.3s ease;
+
+	@media (min-width: $mobile) {
+		padding-left: 8px;
+	}
+
+	@media (min-width: $desktop) {
+		padding-left: 12px;
+	}
+}
+
+// скрываем у input[type="tel"] placeholder в обычном состоянии
+[type='tel']::placeholder {
+	font-size: 0;
+	transition: font-size 0.3s ease;
+}
+
+input[type='tel']:focus::placeholder {
+	font-size: 14px;
+	transition: font-size 0.3s ease;
+}
+
+// убираем стрелки у input[type="number"]
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+input[type='number']:hover,
+input[type='number']:focus {
+	-moz-appearance: number-input;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+// password
+
+input[name='password'],
+input[name='repeatPassword'] {
+	padding-right: 62px;
+	letter-spacing: 1px;
+}
+
+.toggle-password-visibility-btn {
+	position: absolute;
+	right: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 24px;
+	height: 24px;
+	z-index: 10;
+	background-color: transparent;
+
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+.toggle-password-visibility-btn[data-show='false'] {
+	svg:first-of-type {
+		display: none;
+	}
+
+	svg:nth-of-type(2) {
+		display: block;
+	}
+}
+
+.toggle-password-visibility-btn[data-show='true'] {
+	svg:first-of-type {
+		display: block;
+	}
+
+	svg:nth-of-type(2) {
+		display: none;
+	}
+}
+
+.icon-eye-password-hidden {
+	width: 24px;
+	height: 24px;
+	fill: transparent;
+}
+.icon-eye-password {
+	width: 24px;
+	height: 24px;
+	fill: transparent;
+}

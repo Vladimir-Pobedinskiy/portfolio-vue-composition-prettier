@@ -1,0 +1,78 @@
+.hover-from-left {
+	@media (min-width: $desktop) {
+		position: relative;
+		transition: transform 0.2s ease;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: $color-black;
+			left: 0;
+			bottom: -2px;
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform 0.25s ease;
+		}
+
+		&:not(.active):hover::before {
+			transform: scaleX(1);
+		}
+	}
+}
+
+.hover-from-center {
+	@media (min-width: $desktop) {
+		position: relative;
+		transition: transform 0.2s ease;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: $color-black;
+			left: 0;
+			bottom: -2px;
+			transform: scaleX(0);
+			transform-origin: center;
+			transition: transform 0.25s ease;
+		}
+
+		&:not(.active):hover::before {
+			transform: scaleX(1);
+		}
+	}
+}
+
+.hover-scale {
+	@media (min-width: $desktop) {
+		cursor: pointer;
+
+		&:hover {
+			.hover-scale-img {
+				transform: scale(1.03);
+				opacity: 0.9;
+				transition:
+					transform 0.5s ease,
+					opacity 0.5s ease;
+			}
+		}
+
+		.hover-scale-img-wrapper {
+			@media (min-width: $desktop) {
+				overflow: hidden;
+			}
+		}
+
+		.hover-scale-img {
+			@media (min-width: $desktop) {
+				will-change: transform;
+				transition:
+					transform 0.5s ease,
+					opacity 0.5s ease;
+			}
+		}
+	}
+}
