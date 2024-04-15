@@ -1,10 +1,10 @@
 <template>
-	<template v-if="isLoading">
-		<AppLoading :is-loading="isLoading" />
-	</template>
-	<template v-else>
-		<div class="container">
-			<div v-if="hero" class="hero-view offset-page-br">
+	<div v-if="hero" class="hero-view offset-page-br">
+		<template v-if="isLoading">
+			<AppLoading :is-loading="isLoading" />
+		</template>
+		<template v-else>
+			<div class="container">
 				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
 				<div class="hero-view__inner">
 					<div class="hero-view__img-wrapper">
@@ -25,8 +25,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</template>
+		</template>
+	</div>
 </template>
 
 <script>

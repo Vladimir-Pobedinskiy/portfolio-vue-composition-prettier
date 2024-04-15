@@ -1,9 +1,9 @@
 <template>
-	<template v-if="isLoading">
-		<AppLoading :is-loading="isLoading" />
-	</template>
-	<template v-else>
-		<div class="heroes-view offset-page-br">
+	<div class="heroes-view offset-page-br">
+		<template v-if="isLoading">
+			<AppLoading :is-loading="isLoading" />
+		</template>
+		<template v-else>
 			<div class="container">
 				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
 				<h1 class="heroes-view__title title h1">{{ description.title }}</h1>
@@ -14,8 +14,8 @@
 
 				<HeroSlider :hero-list="heroList" />
 			</div>
-		</div>
-	</template>
+		</template>
+	</div>
 </template>
 
 <script>

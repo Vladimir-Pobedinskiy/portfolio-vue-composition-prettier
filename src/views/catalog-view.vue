@@ -1,9 +1,9 @@
 <template>
-	<template v-if="isLoading">
-		<AppLoading :is-loading="isLoading" />
-	</template>
-	<template v-else>
-		<div class="catalog-page offset-page-br">
+	<div class="catalog-page offset-page-br">
+		<template v-if="isLoading">
+			<AppLoading :is-loading="isLoading" />
+		</template>
+		<template v-else>
 			<div class="container">
 				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
 				<h1 class="visually-hidden">Каталог</h1>
@@ -42,8 +42,8 @@
 					</div>
 				</section>
 			</div>
-		</div>
-	</template>
+		</template>
+	</div>
 </template>
 
 <script>

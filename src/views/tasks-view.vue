@@ -1,9 +1,9 @@
 <template>
-	<template v-if="isLoading">
-		<AppLoading :is-loading="isLoading" />
-	</template>
-	<template v-else>
-		<div class="tasks-view offset-page-br">
+	<div class="tasks-view offset-page-br">
+		<template v-if="isLoading">
+			<AppLoading :is-loading="isLoading" />
+		</template>
+		<template v-else>
 			<div class="container">
 				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
 				<h1 class="tasks-view__title title h1">{{ description.title }}</h1>
@@ -40,8 +40,8 @@
 					</div>
 				</section>
 			</div>
-		</div>
-	</template>
+		</template>
+	</div>
 </template>
 
 <script>

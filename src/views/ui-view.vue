@@ -1,9 +1,9 @@
 <template>
-	<template v-if="isLoading">
-		<AppLoading :is-loading="isLoading" />
-	</template>
-	<template v-else>
-		<div class="ui-view offset-page-br">
+	<div class="ui-view offset-page-br">
+		<template v-if="isLoading">
+			<AppLoading :is-loading="isLoading" />
+		</template>
+		<template v-else>
 			<div class="container">
 				<UIBreadcrumbs :breadcrumbs="breadcrumbs" />
 				<h1 class="ui-view__title title h1">{{ description.title }}</h1>
@@ -32,8 +32,8 @@
 					<UIAccordionView :accordion-list="accordion.accordionList" />
 				</div>
 			</section>
-		</div>
-	</template>
+		</template>
+	</div>
 </template>
 
 <script>

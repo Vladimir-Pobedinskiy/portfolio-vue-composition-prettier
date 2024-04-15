@@ -1,7 +1,7 @@
 <template>
-	<template v-if="user">
-		<div class="container">
-			<section class="personal-account offset-page">
+	<section class="personal-account offset-page">
+		<template v-if="user">
+			<div class="container">
 				<div class="personal-account__top">
 					<h1 class="personal-account__title h2">Личный кабинет</h1>
 					<button class="personal-account__btn-out btn btn-small" type="button" @click="signOut">Выйти</button>
@@ -9,14 +9,14 @@
 				<div class="personal-account__content">
 					<p class="p1">Контент персонального аккаунта</p>
 				</div>
-			</section>
-		</div>
-	</template>
-	<template v-else>
-		<div class="container">
-			<p>зарегистрируйтесь</p>
-		</div>
-	</template>
+			</div>
+		</template>
+		<template v-else>
+			<div class="container">
+				<p>зарегистрируйтесь</p>
+			</div>
+		</template>
+	</section>
 </template>
 
 <script>
