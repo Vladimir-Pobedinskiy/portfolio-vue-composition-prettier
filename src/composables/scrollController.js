@@ -4,6 +4,7 @@ export const scrollController = {
 	disableScroll() {
 		scrollController.scrollPosition = window.scrollY
 		scrollController.paddingOffset = window.innerWidth - document.documentElement.clientWidth
+		document.body.classList.add('lock-js')
 		document.body.style.cssText = `
       position: fixed;
       left: 0;
@@ -15,6 +16,7 @@ export const scrollController = {
     `
 	},
 	enableScroll() {
+		document.body.classList.remove('lock-js')
 		document.body.style.cssText = ''
 		window.scroll({
 			top: scrollController.scrollPosition

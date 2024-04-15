@@ -54,7 +54,6 @@ export default {
 		const showModal = ref(false)
 		const modalSettings = {
 			name: 'ModalTags',
-			lockScroll: true, // Прокрутка body во время отображения модального окна
 			clickToClose: true, // Закрытие модального окна при нажатии на наложение модального окна
 			escToClose: true, // Нажмите esc, чтобы закрыть модальное окно
 			hideOverlay: false // Скрытие отображения наложения

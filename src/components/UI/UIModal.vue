@@ -3,13 +3,15 @@
 		class="modal-container"
 		content-class="modal-content"
 		overlay-class="modal-overlay"
-		content-transition="vfm-fade"
-		overlay-transition="vfm-fade"
-		:modalId="modalSettings.name"
-		:lock-scroll="modalSettings.lockScroll"
+		:overlay-transition="customOverlayTransition"
+		:content-transition="customContentTransition"
+		:lock-scroll="false"
+		:modal-id="modalSettings.name"
 		:click-to-close="modalSettings.clickToClose"
 		:esc-to-close="modalSettings.escToClose"
 		:hide-overlay="modalSettings.hideOverlay"
+		@before-open="handleBeforeOpen"
+		@closed="handleClosed"
 	>
 		<div class="modal-inner">
 			<button class="modal-close-btn" aria-label="Закрыть модальное окно" @click="$vfm.closeAll">
@@ -25,7 +27,10 @@
 	</VueFinalModal>
 </template>
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import { VueFinalModal } from 'vue-final-modal'
+import { scrollController } from '@/composables/scrollController'
 export default {
 	name: 'UIModal',
 	components: { VueFinalModal },
@@ -33,6 +38,42 @@ export default {
 		modalSettings: {
 			type: Object,
 			required: true
+		}
+	},
+	setup() {
+		const store = useStore()
+		const isOpen = computed(() => store.getters.isOpen)
+
+		const customOverlayTransition = {
+			enterActiveClass: 'custom-overlay-fade-enter-active',
+			leaveActiveClass: 'custom-overlay-fade-leave-active',
+			enterFromClass: 'custom-overlay-fade-enter-from',
+			leaveToClass: 'custom-overlay-fade-leave-to'
+		}
+		const customContentTransition = {
+			enterActiveClass: 'custom-content-slide-enter-active',
+			leaveActiveClass: 'custom-content-slide-leave-active',
+			enterFromClass: 'custom-content-slide-enter-from',
+			leaveToClass: 'custom-content-slide-leave-to'
+		}
+
+		const handleBeforeOpen = () => {
+			if (!document.body.classList.contains('lock-js') || isOpen.value !== 'navigation') {
+				scrollController.disableScroll()
+			}
+		}
+
+		const handleClosed = () => {
+			if (document.body.classList.contains('lock-js') && isOpen.value !== 'navigation') {
+				scrollController.enableScroll()
+			}
+		}
+
+		return {
+			customOverlayTransition,
+			customContentTransition,
+			handleBeforeOpen,
+			handleClosed
 		}
 	}
 }
@@ -76,5 +117,42 @@ export default {
 	height: 32px;
 	margin: 8px 8px 0 0;
 	cursor: pointer;
+}
+
+// content
+.custom-content-slide-enter-active {
+	transition:
+		opacity 0.5s ease,
+		transform 0.6s ease;
+}
+
+.custom-content-slide-leave-active {
+	transition:
+		opacity 0.3s ease,
+		transform 0.3s ease;
+}
+
+.custom-content-slide-enter-from,
+.custom-content-slide-leave-to {
+	opacity: 0;
+	transform: translateY(-20px);
+}
+
+// overlay
+.custom-overlay-fade-enter-active {
+	transition:
+		opacity 0.5s ease,
+		transform 0.5s ease;
+}
+
+.custom-overlay-fade-leave-active {
+	transition:
+		opacity 0.3s ease,
+		transform 0.3s ease;
+}
+
+.custom-overlay-fade-enter-from,
+.custom-overlay-fade-leave-to {
+	opacity: 0;
 }
 </style>
