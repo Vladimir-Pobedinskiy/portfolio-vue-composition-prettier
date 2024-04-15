@@ -1,0 +1,793 @@
+{
+	"main": {
+		"navLinks": [
+			{
+				"title": "Home",
+				"url": "/"
+			},
+			{
+				"title": "Catalog",
+				"url": "/catalog"
+			},
+			{
+				"title": "Heroes",
+				"url": "/heroes"
+			},
+			{
+				"title": "Tasks",
+				"url": "/tasks"
+			},
+			{
+				"title": "UI",
+				"url": "/ui"
+			},
+			{
+				"title": "About me",
+				"url": "/about"
+			}
+		]
+	},
+	"catalog": {
+		"breadcrumbs": [
+			{
+				"title": "Главная",
+				"url": "/"
+			},
+			{
+				"title": "Каталог",
+				"url": "/catalog/"
+			}
+		],
+		"range": [
+			{
+				"name": "min",
+				"minValue": "0.00",
+				"value": "800.00"
+			},
+			{
+				"name": "max",
+				"maxValue": "15000.00",
+				"value": "15000.00"
+			}
+		],
+		"filters": [
+			{
+				"title": "Материал",
+				"name": "material",
+				"options": [
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Пластик",
+						"value": "plastic",
+						"name": "plastic"
+					},
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Стекло",
+						"value": "glass",
+						"name": "glass"
+					},
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Металл",
+						"value": "metal",
+						"name": "metal"
+					}
+				]
+			},
+			{
+				"title": "Высота",
+				"name": "height",
+				"options": [
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "20см",
+						"value": "20",
+						"name": "height"
+					},
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "30см",
+						"value": "30",
+						"name": "height"
+					},
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "40см",
+						"value": "40",
+						"name": "height"
+					},
+					{
+						"selected": false,
+						"disabled": true,
+						"title": "50см",
+						"value": "50",
+						"name": "height"
+					},
+					{
+						"selected": false,
+						"disabled": true,
+						"title": "60см",
+						"value": "60",
+						"name": "height"
+					},
+					{
+						"selected": false,
+						"disabled": true,
+						"title": "70см",
+						"value": "70",
+						"name": "height"
+					},
+					{
+						"selected": false,
+						"disabled": true,
+						"title": "80см",
+						"value": "80",
+						"name": "height"
+					},
+					{
+						"selected": false,
+						"disabled": true,
+						"title": "90см",
+						"value": "90",
+						"name": "height"
+					}
+				]
+			},
+			{
+				"title": "Тип героя",
+				"name": "type",
+				"options": [
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Солдат",
+						"value": "soldier",
+						"name": "soldier"
+					},
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Стрелок",
+						"value": "shooter",
+						"name": "shooter"
+					},
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Волшебник",
+						"value": "wizard",
+						"name": "wizard"
+					},
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Дракон",
+						"value": "dragon",
+						"name": "dragon"
+					},
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Голем",
+						"value": "golem",
+						"name": "golem"
+					}
+				]
+			},
+			{
+				"title": "Радиоуправление",
+				"name": "radio-control",
+				"options": [
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Да",
+						"value": "yes",
+						"name": "yes"
+					},
+					{
+						"selected": false,
+						"disabled": false,
+						"title": "Нет",
+						"value": "no",
+						"name": "no"
+					}
+				]
+			}
+		],
+		"sort": [
+			{
+				"title": "По возрастанию цены",
+				"field": "price",
+				"order": "asc",
+				"selected": false
+			},
+			{
+				"title": "По убыванию цены",
+				"field": "price",
+				"order": "desc",
+				"selected": false
+			}
+		],
+		"pageTotal": "10",
+		"productTotal": "4"
+	},
+	"catalog-products": [
+		{
+			"id": "1",
+			"productUrl": "#!",
+			"alias": "barbarian",
+			"title": "The Barbarian",
+			"imgUrl": "/img/hero/barbarian.png",
+			"price": "1500",
+			"oldPrice": "3000",
+			"discount": "50",
+			"material": "plastic",
+			"height": "20",
+			"type": "soldier",
+			"radio-control": "yes",
+			"cartQuantity": 1,
+			"maxQuantity": 3
+		},
+		{
+			"id": "2",
+			"productUrl": "#!",
+			"alias": "archer",
+			"title": "The Archer",
+			"imgUrl": "/img/hero/archer.png",
+			"price": "1200",
+			"oldPrice": "2400",
+			"discount": "50",
+			"material": "plastic",
+			"height": "20",
+			"type": "shooter",
+			"radio-control": "no",
+			"cartQuantity": 1,
+			"maxQuantity": 2
+		},
+		{
+			"id": "3",
+			"productUrl": "#!",
+			"alias": "giant",
+			"title": "The Giant",
+			"imgUrl": "/img/hero/giant.png",
+			"price": "1000",
+			"oldPrice": "2000",
+			"discount": "50",
+			"material": "glass",
+			"height": "20",
+			"type": "soldier",
+			"radio-control": "yes",
+			"cartQuantity": 1,
+			"maxQuantity": 6
+		},
+		{
+			"id": "4",
+			"productUrl": "#!",
+			"alias": "goblin",
+			"title": "The Goblin",
+			"imgUrl": "/img/hero/goblin.png",
+			"price": "1150",
+			"oldPrice": "2300",
+			"discount": "50",
+			"material": "plastic",
+			"height": "20",
+			"type": "soldier",
+			"radio-control": "yes",
+			"cartQuantity": 1,
+			"maxQuantity": 6
+		},
+		{
+			"id": "5",
+			"productUrl": "#!",
+			"alias": "wizard",
+			"title": "The Wizard",
+			"imgUrl": "/img/hero/wizard.png",
+			"price": "1300",
+			"oldPrice": "2600",
+			"discount": "50",
+			"material": "metal",
+			"height": "30",
+			"type": "wizard",
+			"radio-control": "yes",
+			"cartQuantity": 1,
+			"maxQuantity": 6
+		},
+		{
+			"id": "6",
+			"productUrl": "#!",
+			"alias": "dragon",
+			"title": "The Dragon",
+			"imgUrl": "/img/hero/dragon.png",
+			"price": "2530",
+			"oldPrice": "",
+			"discount": "",
+			"material": "plastic",
+			"height": "30",
+			"type": "dragon",
+			"radio-control": "yes",
+			"cartQuantity": 1,
+			"maxQuantity": 6
+		},
+		{
+			"id": "7",
+			"productUrl": "#!",
+			"alias": "golem",
+			"title": "The Golem",
+			"imgUrl": "/img/hero/golem.png",
+			"price": "1700",
+			"oldPrice": "3400",
+			"discount": "50",
+			"material": "glass",
+			"height": "40",
+			"type": "golem",
+			"radio-control": "yes",
+			"cartQuantity": 1,
+			"maxQuantity": 6
+		},
+		{
+			"id": "8",
+			"productUrl": "#!",
+			"alias": "archer-queen",
+			"title": "The Archer queen",
+			"imgUrl": "/img/hero/archer-queen.png",
+			"price": "1600",
+			"oldPrice": "3200",
+			"discount": "50",
+			"material": "plastic",
+			"height": "30",
+			"type": "shooter",
+			"radio-control": "no",
+			"cartQuantity": 1,
+			"maxQuantity": 6
+		}
+	],
+	"heroes": {
+		"breadcrumbs": [
+			{
+				"title": "Главная",
+				"url": "/"
+			},
+			{
+				"title": "Герои",
+				"url": "/heroes/"
+			}
+		],
+		"description": {
+			"title": "В этом приложении реализовано:",
+			"descriptionList": ["Храниение и взаимодействие с данными из JSON Server", "Динамические маршруты", "Слайдер"]
+		},
+		"heroList": [
+			{
+				"id": "1",
+				"alias": "barbarian",
+				"title": "The Barbarian",
+				"descr": "The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready expression, hungry for destruction. He has Killer yellow horseshoe mustache.",
+				"imgUrl": "/img/hero/barbarian.png",
+				"lvl": "4",
+				"info": [
+					{
+						"title": "training",
+						"value": "20s"
+					},
+					{
+						"title": "speed",
+						"value": "16"
+					},
+					{
+						"title": "price",
+						"value": "150"
+					}
+				]
+			},
+			{
+				"id": "2",
+				"alias": "archer",
+				"title": "The Archer",
+				"descr": "The Archer is a female warrior with sharp eyes. She wears a short, light green dress, a hooded cape, a leather belt and an attached small pouch.",
+				"imgUrl": "/img/hero/archer.png",
+				"lvl": "4",
+				"info": [
+					{
+						"title": "training",
+						"value": "25s"
+					},
+					{
+						"title": "speed",
+						"value": "24"
+					},
+					{
+						"title": "price",
+						"value": "300"
+					}
+				]
+			},
+			{
+				"id": "3",
+				"alias": "giant",
+				"title": "The Giant",
+				"descr": "Slow, steady and powerful, Giants are massive warriors that soak up huge amounts of damage. Show them a turret or cannon and you will see their fury unleashed!",
+				"imgUrl": "/img/hero/giant.png",
+				"lvl": "4",
+				"info": [
+					{
+						"title": "training",
+						"value": "2m"
+					},
+					{
+						"title": "speed",
+						"value": "12"
+					},
+					{
+						"title": "price",
+						"value": "2250"
+					}
+				]
+			},
+			{
+				"id": "4",
+				"alias": "goblin",
+				"title": "The Goblin",
+				"descr": "These pesky little creatures only have eyes for one thing: LOOT! They are faster than a Spring Trap, and their hunger for resources is limitless.",
+				"imgUrl": "/img/hero/goblin.png",
+				"lvl": "5",
+				"info": [
+					{
+						"title": "training",
+						"value": "30s"
+					},
+					{
+						"title": "speed",
+						"value": "32"
+					},
+					{
+						"title": "price",
+						"value": "100"
+					}
+				]
+			},
+			{
+				"id": "5",
+				"alias": "wizard",
+				"title": "The Wizard",
+				"descr": "The Wizard is a terrifying presence on the battlefield. Pair him up with some of his fellows and cast concentrated blasts of destruction on anything, land or sky!",
+				"imgUrl": "/img/hero/wizard.png",
+				"lvl": "6",
+				"info": [
+					{
+						"title": "training",
+						"value": "5m"
+					},
+					{
+						"title": "speed",
+						"value": "16"
+					},
+					{
+						"title": "price",
+						"value": "3800"
+					}
+				]
+			}
+		]
+	},
+	"barbarian": {
+		"breadcrumbs": [
+			{
+				"title": "Главная",
+				"url": "/"
+			},
+			{
+				"title": "Герои",
+				"url": "/heroes"
+			},
+			{
+				"title": "Barbarian",
+				"url": "/barbarian/"
+			}
+		],
+		"description": {
+			"id": "1",
+			"alias": "barbarian",
+			"title": "The Barbarian",
+			"descr": "The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready expression, hungry for destruction. He has Killer yellow horseshoe mustache.",
+			"imgUrl": "/img/hero/barbarian.png",
+			"lvl": "4",
+			"info": [
+				{
+					"title": "training",
+					"value": "20s"
+				},
+				{
+					"title": "speed",
+					"value": "16"
+				},
+				{
+					"title": "price",
+					"value": "150"
+				}
+			]
+		}
+	},
+	"archer": {
+		"breadcrumbs": [
+			{
+				"title": "Главная",
+				"url": "/"
+			},
+			{
+				"title": "Герои",
+				"url": "/heroes"
+			},
+			{
+				"title": "Archer",
+				"url": "/archer/"
+			}
+		],
+		"description": {
+			"id": "2",
+			"alias": "archer",
+			"title": "The Archer",
+			"descr": "The Archer is a female warrior with sharp eyes. She wears a short, light green dress, a hooded cape, a leather belt and an attached small pouch.",
+			"imgUrl": "/img/hero/archer.png",
+			"lvl": "4",
+			"info": [
+				{
+					"title": "training",
+					"value": "25s"
+				},
+				{
+					"title": "speed",
+					"value": "24"
+				},
+				{
+					"title": "price",
+					"value": "300"
+				}
+			]
+		}
+	},
+	"giant": {
+		"breadcrumbs": [
+			{
+				"title": "Главная",
+				"url": "/"
+			},
+			{
+				"title": "Герои",
+				"url": "/heroes"
+			},
+			{
+				"title": "Giant",
+				"url": "/giant/"
+			}
+		],
+		"description": {
+			"id": "3",
+			"alias": "giant",
+			"title": "The Giant",
+			"descr": "Slow, steady and powerful, Giants are massive warriors that soak up huge amounts of damage. Show them a turret or cannon and you will see their fury unleashed!",
+			"imgUrl": "/img/hero/giant.png",
+			"lvl": "4",
+			"info": [
+				{
+					"title": "training",
+					"value": "2m"
+				},
+				{
+					"title": "speed",
+					"value": "12"
+				},
+				{
+					"title": "price",
+					"value": "2250"
+				}
+			]
+		}
+	},
+	"goblin": {
+		"breadcrumbs": [
+			{
+				"title": "Главная",
+				"url": "/"
+			},
+			{
+				"title": "Герои",
+				"url": "/heroes"
+			},
+			{
+				"title": "Goblin",
+				"url": "/goblin/"
+			}
+		],
+		"description": {
+			"id": "4",
+			"alias": "goblin",
+			"title": "The Goblin",
+			"descr": "These pesky little creatures only have eyes for one thing: LOOT! They are faster than a Spring Trap, and their hunger for resources is limitless.",
+			"imgUrl": "/img/hero/goblin.png",
+			"lvl": "5",
+			"info": [
+				{
+					"title": "training",
+					"value": "30s"
+				},
+				{
+					"title": "speed",
+					"value": "32"
+				},
+				{
+					"title": "price",
+					"value": "100"
+				}
+			]
+		}
+	},
+	"wizard": {
+		"breadcrumbs": [
+			{
+				"title": "Главная",
+				"url": "/"
+			},
+			{
+				"title": "Герои",
+				"url": "/heroes"
+			},
+			{
+				"title": "Wizard",
+				"url": "/wizard/"
+			}
+		],
+		"description": {
+			"id": "5",
+			"alias": "wizard",
+			"title": "The Wizard",
+			"descr": "The Wizard is a terrifying presence on the battlefield. Pair him up with some of his fellows and cast concentrated blasts of destruction on anything, land or sky!",
+			"imgUrl": "/img/hero/wizard.png",
+			"lvl": "6",
+			"info": [
+				{
+					"title": "training",
+					"value": "5m"
+				},
+				{
+					"title": "speed",
+					"value": "16"
+				},
+				{
+					"title": "price",
+					"value": "3800"
+				}
+			]
+		}
+	},
+	"tasks": {
+		"breadcrumbs": [
+			{
+				"title": "Главная",
+				"url": "/"
+			},
+			{
+				"title": "Список задач",
+				"url": "/tasks/"
+			}
+		],
+		"description": {
+			"title": "В этом приложении реализовано:",
+			"descriptionList": [
+				"Добавление, удаление, редактирование задач",
+				"Добавление и редактирование hashtags",
+				"Добавление времени добавления",
+				"Хранение данных в Store и LocalStorage"
+			]
+		}
+	},
+	"ui": {
+		"breadcrumbs": [
+			{
+				"title": "Главная",
+				"url": "/"
+			},
+			{
+				"title": "UI компоненты",
+				"url": "/ui/"
+			}
+		],
+		"description": {
+			"title": "В UI компонентах реализовано:",
+			"descriptionList": [
+				"Храниение и взаимодействие с данными из JSON Server",
+				"Компонент: \"Табы\"",
+				"Компонент: \"Бесконечная строка\"",
+				"Компонент: \"Аккордион\""
+			]
+		},
+		"marquee": {
+			"title": "Бесконечная строка героев",
+			"marqueeImages": [
+				{
+					"imgUrl": "/img/hero/barbarian.png",
+					"title": "barbarian"
+				},
+				{
+					"imgUrl": "/img/hero/archer.png",
+					"title": "archer"
+				},
+				{
+					"imgUrl": "/img/hero/giant.png",
+					"title": "giant"
+				},
+				{
+					"imgUrl": "/img/hero/goblin.png",
+					"title": "goblin"
+				},
+				{
+					"imgUrl": "/img/hero/wizard.png",
+					"title": "wizard"
+				}
+			]
+		},
+		"accordion": {
+			"title": "Компонент аккордион",
+			"accordionList": [
+				{
+					"title": "Аккордион заголовок 1",
+					"text": "<span>Список</span><ol><li>Пункт 1</li><li>Пункт 2</li><li>Пункт 3</li></ol><p>Прародителем текста-рыбы является известный Lorem Ipsum — латинский текст, ноги которого растут аж из 45 года до нашей эры. Сервисов по созданию случайного текста на основе Lorem Ipsum великое множество, однако все они имеют один существенный недостаток: их рыба текст подходит лишь для англоязычных ресурсов/проектов.</p>",
+					"selected": false
+				},
+				{
+					"title": "Аккордион заголовок 2",
+					"text": "<p>Прародителем текста-рыбы является известный Lorem Ipsum — латинский текст, ноги которого растут аж из 45 года до нашей эры. Сервисов по созданию случайного текста на основе Lorem Ipsum великое множество, однако все они имеют один существенный недостаток: их рыба текст подходит лишь для англоязычных ресурсов/проектов.</p>",
+					"selected": false
+				},
+				{
+					"title": "Аккордион заголовок 3",
+					"text": "<p>Прародителем текста-рыбы является известный Lorem Ipsum — латинский текст, ноги которого растут аж из 45 года до нашей эры. Сервисов по созданию случайного текста на основе Lorem Ipsum великое множество, однако все они имеют один существенный недостаток: их рыба текст подходит лишь для англоязычных ресурсов/проектов.</p>",
+					"selected": false
+				}
+			]
+		},
+		"tabs": {
+			"title": "Компонент табы",
+			"tabsNav": [
+				{
+					"title": "Wizard",
+					"name": "wizard",
+					"selected": false
+				},
+				{
+					"title": "Archer",
+					"name": "archer",
+					"selected": false
+				},
+				{
+					"title": "Giant",
+					"name": "giant",
+					"selected": false
+				}
+			]
+		}
+	},
+	"login": {
+		"user": {
+			"tel": "+7 (888) 888-88-88",
+			"password": "888888888"
+		}
+	},
+	"registration": {
+		"user": {
+			"surname": "Побединский",
+			"name": "влад",
+			"tel": "+7 (222) 222-22-22",
+			"email": "22@ya.ru",
+			"password": "22222222",
+			"repeatPassword": "2222222222"
+		}
+	}
+}

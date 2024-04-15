@@ -24,6 +24,18 @@ npm run build
 npm run lint
 ```
 
+Запускает json-server
+
+```bash
+npm run server
+```
+
+Запускает одновременно json-server и сборку в режиме dev
+
+```bash
+npm run double
+```
+
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).

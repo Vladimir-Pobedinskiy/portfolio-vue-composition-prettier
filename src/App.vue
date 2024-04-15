@@ -1,23 +1,21 @@
 <template>
-	<div id="app">
-		<h1 class="h1">Привет! Я сборка самая актуальная! С линтингом (css, js, vue) от prettier!</h1>
-	</div>
+	<AppHeader />
+
+	<main class="main">
+		<router-view />
+	</main>
+
+	<AppFooter />
+	<ModalError />
 </template>
 
-<script></script>
+<script>
+import AppHeader from '@/components/App/AppHeader'
+import AppFooter from '@/components/App/AppFooter'
+import ModalError from '@/components/Modals/ModalError'
 
-<style lang="scss">
-#app {
-	font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-	margin-top: 60px;
+export default {
+	name: 'App',
+	components: { AppHeader, AppFooter, ModalError }
 }
-
-.h1 {
-	font-size: 32px;
-	line-height: 1.3;
-}
-</style>
+</script>
