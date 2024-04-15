@@ -9,6 +9,7 @@ import '@/plugins/iconify-vue'
 import { createVfm } from 'vue-final-modal'
 import 'vue-final-modal/style.css'
 import VueDOMPurifyHTML from 'vue-dompurify-html'
+import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
 // Глобальные компоненты
 import UIIcon from '@/components/UI/UIIcon'
@@ -25,6 +26,7 @@ if (app.config.globalProperties.$store) {
 const vfm = createVfm()
 app.use(vfm)
 app.use(VueDOMPurifyHTML)
+app.use(autoAnimatePlugin)
 
 // Регистрируем глобальные компоненты
 app.component('UIIcon', UIIcon)
