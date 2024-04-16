@@ -1,40 +1,3 @@
-<template>
-	<header class="header">
-		<div class="container">
-			<div class="header__inner">
-				<router-link class="header__logo h4" :to="{ name: 'home-view' }">PORTFOLIO</router-link>
-				<div ref="navigation" class="header__nav-list-wrapper" :class="{ active: isOpen === 'navigation' }">
-					<ul class="nav-list">
-						<li v-for="(item, i) in navLinks" :key="i" class="nav-item">
-							<router-link class="nav-link p1 hover-from-center" :to="`${item.url}`">{{ item.title }}</router-link>
-						</li>
-					</ul>
-				</div>
-
-				<ul v-if="isDesktop" class="nav-user">
-					<li class="nav-user__item">
-						<UIUser />
-					</li>
-					<li class="nav-user__item">
-						<UICart />
-					</li>
-				</ul>
-
-				<button
-					class="header__burger-btn burger-btn"
-					:class="{ active: isOpen === 'navigation' }"
-					type="button"
-					@click="toggleState('navigation')"
-				>
-					<span class="burger-btn__label">
-						<span class="visually-hidden">открыть меню</span>
-					</span>
-				</button>
-			</div>
-		</div>
-	</header>
-</template>
-
 <script>
 import { ref, computed, watch } from 'vue'
 import { useStore } from 'vuex'
@@ -76,6 +39,43 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<header class="header">
+		<div class="container">
+			<div class="header__inner">
+				<router-link class="header__logo h4" :to="{ name: 'home-view' }">PORTFOLIO</router-link>
+				<div ref="navigation" class="header__nav-list-wrapper" :class="{ active: isOpen === 'navigation' }">
+					<ul class="nav-list">
+						<li v-for="(item, i) in navLinks" :key="i" class="nav-item">
+							<router-link class="nav-link p1 hover-from-center" :to="`${item.url}`">{{ item.title }}</router-link>
+						</li>
+					</ul>
+				</div>
+
+				<ul v-if="isDesktop" class="nav-user">
+					<li class="nav-user__item">
+						<UIUser />
+					</li>
+					<li class="nav-user__item">
+						<UICart />
+					</li>
+				</ul>
+
+				<button
+					class="header__burger-btn burger-btn"
+					:class="{ active: isOpen === 'navigation' }"
+					type="button"
+					@click="toggleState('navigation')"
+				>
+					<span class="burger-btn__label">
+						<span class="visually-hidden">открыть меню</span>
+					</span>
+				</button>
+			</div>
+		</div>
+	</header>
+</template>
 
 <style lang="scss">
 .header {

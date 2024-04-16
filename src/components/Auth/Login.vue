@@ -1,3 +1,79 @@
+<script>
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+import { Form as VeeValidateForm, Field } from 'vee-validate'
+import * as Yup from 'yup'
+import { passwordVisibility } from '@/utils/utils'
+import { IMaskDirective } from 'vue-imask'
+import { supabase } from '@/supabase'
+// import axios from 'axios'
+import AppLoading from '@/components/App/AppLoading'
+
+export default {
+	name: 'AuthLogin',
+	components: { AppLoading, VeeValidateForm, Field },
+	directives: {
+		imask: IMaskDirective // Рег. директиву IMaskDirective - это директива, предоставляемая библиотекой vue-imask
+	},
+	setup() {
+		const store = useStore()
+		const router = useRouter()
+		const form = ref({
+			user: {
+				email: '',
+				password: ''
+			}
+		})
+		const schema = Yup.object().shape({
+			email: Yup.string().required('Email обязателен для заполнения').email('Неверный формат электронной почты'),
+			password: Yup.string().required('Пароль обязателен для заполнения').min(6, 'Неверный пароль')
+		})
+		const isLoading = computed(() => store.getters.isLoading)
+		const startLoading = () => store.dispatch('startLoading')
+		const endLoading = () => store.dispatch('endLoading')
+		const setUser = user => store.dispatch('setUser', user)
+
+		const togglePasswordVisibility = event => {
+			passwordVisibility(event)
+		}
+
+		const onSubmit = async (values, actions) => {
+			try {
+				startLoading()
+				// await axios.post('/api/login/', { ...this.form })
+				const { data, error } = await supabase.auth.signInWithPassword({
+					email: form.value.user.email,
+					password: form.value.user.password
+				})
+				if (error) throw error
+				form.value.user.email = ''
+				form.value.user.password = ''
+				actions.resetForm()
+				setUser(data.user)
+				router.push({ name: 'personal-account-view' })
+			} catch (error) {
+				if (error.statusCode === 422) {
+					actions.setErrors(error.data.errors)
+				}
+				actions.setErrors({ email: ' ', password: `${error.name}` })
+				console.error('Error fetching AuthLogin:', error)
+			} finally {
+				endLoading()
+			}
+		}
+
+		return {
+			form,
+			schema,
+			isLoading,
+			togglePasswordVisibility,
+			onSubmit
+		}
+	}
+}
+</script>
+
 <template>
 	<template v-if="isLoading">
 		<AppLoading :is-loading="isLoading" />
@@ -79,82 +155,6 @@
 		</VeeValidateForm>
 	</div>
 </template>
-
-<script>
-import { ref, computed } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
-import { Form as VeeValidateForm, Field } from 'vee-validate'
-import * as Yup from 'yup'
-import { passwordVisibility } from '@/utils/utils'
-import { IMaskDirective } from 'vue-imask'
-import { supabase } from '@/supabase'
-// import axios from 'axios'
-import AppLoading from '@/components/App/AppLoading'
-
-export default {
-	name: 'AuthLogin',
-	components: { AppLoading, VeeValidateForm, Field },
-	directives: {
-		imask: IMaskDirective // Рег. директиву IMaskDirective - это директива, предоставляемая библиотекой vue-imask
-	},
-	setup() {
-		const store = useStore()
-		const router = useRouter()
-		const form = ref({
-			user: {
-				email: '',
-				password: ''
-			}
-		})
-		const schema = Yup.object().shape({
-			email: Yup.string().required('Email обязателен для заполнения').email('Неверный формат электронной почты'),
-			password: Yup.string().required('Пароль обязателен для заполнения').min(6, 'Неверный пароль')
-		})
-		const isLoading = computed(() => store.getters.isLoading)
-		const startLoading = () => store.dispatch('startLoading')
-		const endLoading = () => store.dispatch('endLoading')
-		const setUser = user => store.dispatch('setUser', user)
-
-		const togglePasswordVisibility = event => {
-			passwordVisibility(event)
-		}
-
-		const onSubmit = async (values, actions) => {
-			try {
-				startLoading()
-				// await axios.post('/api/login/', { ...this.form })
-				const { data, error } = await supabase.auth.signInWithPassword({
-					email: form.value.user.email,
-					password: form.value.user.password
-				})
-				if (error) throw error
-				form.value.user.email = ''
-				form.value.user.password = ''
-				actions.resetForm()
-				setUser(data.user)
-				router.push({ name: 'personal-account-view' })
-			} catch (error) {
-				if (error.statusCode === 422) {
-					actions.setErrors(error.data.errors)
-				}
-				actions.setErrors({ email: ' ', password: `${error.name}` })
-				console.error('Error fetching AuthLogin:', error)
-			} finally {
-				endLoading()
-			}
-		}
-
-		return {
-			form,
-			schema,
-			isLoading,
-			togglePasswordVisibility,
-			onSubmit
-		}
-	}
-}
-</script>
 
 <style lang="scss">
 .login {

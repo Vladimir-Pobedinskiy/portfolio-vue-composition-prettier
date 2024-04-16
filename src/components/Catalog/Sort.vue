@@ -1,20 +1,3 @@
-<template>
-	<div class="sort">
-		<div class="sort__btn-list">
-			<button
-				v-for="(item, i) in sort"
-				:key="i"
-				class="sort__btn p3"
-				:class="{ active: item.selected }"
-				type="button"
-				@click="onSort(item)"
-			>
-				{{ item.title }}
-			</button>
-		</div>
-	</div>
-</template>
-
 <script>
 import { useRoute, useRouter } from 'vue-router'
 export default {
@@ -41,6 +24,23 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="sort">
+		<div class="sort__btn-list">
+			<button
+				v-for="(item, i) in sort"
+				:key="i"
+				class="sort__btn p3"
+				:class="{ active: item.selected }"
+				type="button"
+				@click="onSort(item)"
+			>
+				{{ item.title }}
+			</button>
+		</div>
+	</div>
+</template>
 
 <style lang="scss">
 .sort {

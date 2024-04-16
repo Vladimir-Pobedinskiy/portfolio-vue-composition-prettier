@@ -1,41 +1,3 @@
-<template>
-	<div class="task-list-item">
-		<div class="task-list-item__header">
-			<div class="task-list-item__title-wrapper">
-				<span class="task-list-item__title p1">{{ task.title }}</span>
-				<button
-					class="task-list-item__title-edit-btn"
-					type="button"
-					aria-label="Открыть редактирование задачи"
-					@click="openEditInput"
-				>
-					<UIIcon icon-name="mdi-edit-outline" class-name="icon-edit" width="32px" height="32px" />
-				</button>
-			</div>
-			<div class="task-list-item__input-wrapper" :class="{ 'visually-hidden': inputHiddenFlag }">
-				<input v-model="inputValue" class="task-list-item__input p3" type="text" name="task-name" />
-				<button
-					class="task-list-item__btn-close-input"
-					type="button"
-					@click="editCurrentTask(), (inputHiddenFlag = true)"
-				>
-					{{ !inputValue.length ? 'Закрыть' : 'Сохранить' }}
-				</button>
-			</div>
-			<button class="task-list-item__remove-btn" type="button" aria-label="Закрыть задачу" @click="deleteCurrentTask">
-				<UIIcon icon-name="mdi-close" class-name="icon-close" width="32px" height="32px" />
-			</button>
-		</div>
-		<div class="task-list-item__footer">
-			<div class="tag-list-wrapper">
-				<TaskTagList v-if="task.tags && task.tags.length" :tags="task.tags" isPreview />
-				<ModalTags @editSelectedTags="editSelectedTags" :current-tags="task.tags" />
-			</div>
-			<span v-if="task.date" class="task-list-item__date p5">{{ task.date }}</span>
-		</div>
-	</div>
-</template>
-
 <script>
 import { ref, toRefs } from 'vue'
 import { useStore } from 'vuex'
@@ -91,6 +53,44 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="task-list-item">
+		<div class="task-list-item__header">
+			<div class="task-list-item__title-wrapper">
+				<span class="task-list-item__title p1">{{ task.title }}</span>
+				<button
+					class="task-list-item__title-edit-btn"
+					type="button"
+					aria-label="Открыть редактирование задачи"
+					@click="openEditInput"
+				>
+					<UIIcon icon-name="mdi-edit-outline" class-name="icon-edit" width="32px" height="32px" />
+				</button>
+			</div>
+			<div class="task-list-item__input-wrapper" :class="{ 'visually-hidden': inputHiddenFlag }">
+				<input v-model="inputValue" class="task-list-item__input p3" type="text" name="task-name" />
+				<button
+					class="task-list-item__btn-close-input"
+					type="button"
+					@click="editCurrentTask(), (inputHiddenFlag = true)"
+				>
+					{{ !inputValue.length ? 'Закрыть' : 'Сохранить' }}
+				</button>
+			</div>
+			<button class="task-list-item__remove-btn" type="button" aria-label="Закрыть задачу" @click="deleteCurrentTask">
+				<UIIcon icon-name="mdi-close" class-name="icon-close" width="32px" height="32px" />
+			</button>
+		</div>
+		<div class="task-list-item__footer">
+			<div class="tag-list-wrapper">
+				<TaskTagList v-if="task.tags && task.tags.length" :tags="task.tags" isPreview />
+				<ModalTags @editSelectedTags="editSelectedTags" :current-tags="task.tags" />
+			</div>
+			<span v-if="task.date" class="task-list-item__date p5">{{ task.date }}</span>
+		</div>
+	</div>
+</template>
 
 <style lang="scss">
 .task-list-item {

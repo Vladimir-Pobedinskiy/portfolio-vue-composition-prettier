@@ -1,52 +1,3 @@
-<template>
-	<div class="product-preview-wrapper">
-		<router-link class="product-preview hover-scale" :class="{ 'skeleton-box': isLoading }" :to="product.productUrl">
-			<div class="product-preview__img-wrapper hover-scale-img-wrapper">
-				<img class="product-preview__img hover-scale-img" :src="product.imgUrl" :alt="product.title" />
-			</div>
-			<div class="product-preview__body">
-				<span class="product-preview__title h3">{{ product.title }}</span>
-				<div class="product-preview__content">
-					<div class="product-preview__price-wrapper">
-						<span class="product-preview__price p1">{{ priceFormatter(product.price) }}</span>
-						<span v-if="product.oldPrice" class="product-preview__old-price price">
-							{{ priceFormatter(product.oldPrice) }}
-						</span>
-						<span v-if="product.discount" class="product-preview__discount name-product">{{ product.discount }}%</span>
-					</div>
-
-					<div v-if="isInCart" class="product-preview__quantity-wrapper">
-						<ProductQuantity
-							:value="cartQuantity"
-							:max-value="product.maxQuantity"
-							@click.stop.prevent="onQuantity($event)"
-							@input="onInput"
-						/>
-					</div>
-				</div>
-			</div>
-			<button
-				v-if="!isInCart"
-				key="off"
-				class="product-preview__link btn-orange s4"
-				type="button"
-				@click.stop.prevent="addToCart"
-			>
-				Добавить в корзину
-			</button>
-			<button
-				v-else
-				key="on"
-				class="product-preview__link btn-secondary btn-secondary-small s4"
-				type="button"
-				@click.stop.prevent="$router.push('/cart/')"
-			>
-				Перейти в корзину
-			</button>
-		</router-link>
-	</div>
-</template>
-
 <script>
 import { toRefs, computed } from 'vue'
 import { useStore } from 'vuex'
@@ -122,6 +73,55 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="product-preview-wrapper">
+		<router-link class="product-preview hover-scale" :class="{ 'skeleton-box': isLoading }" :to="product.productUrl">
+			<div class="product-preview__img-wrapper hover-scale-img-wrapper">
+				<img class="product-preview__img hover-scale-img" :src="product.imgUrl" :alt="product.title" />
+			</div>
+			<div class="product-preview__body">
+				<span class="product-preview__title h3">{{ product.title }}</span>
+				<div class="product-preview__content">
+					<div class="product-preview__price-wrapper">
+						<span class="product-preview__price p1">{{ priceFormatter(product.price) }}</span>
+						<span v-if="product.oldPrice" class="product-preview__old-price price">
+							{{ priceFormatter(product.oldPrice) }}
+						</span>
+						<span v-if="product.discount" class="product-preview__discount name-product">{{ product.discount }}%</span>
+					</div>
+
+					<div v-if="isInCart" class="product-preview__quantity-wrapper">
+						<ProductQuantity
+							:value="cartQuantity"
+							:max-value="product.maxQuantity"
+							@click.stop.prevent="onQuantity($event)"
+							@input="onInput"
+						/>
+					</div>
+				</div>
+			</div>
+			<button
+				v-if="!isInCart"
+				key="off"
+				class="product-preview__link btn-orange s4"
+				type="button"
+				@click.stop.prevent="addToCart"
+			>
+				Добавить в корзину
+			</button>
+			<button
+				v-else
+				key="on"
+				class="product-preview__link btn-secondary btn-secondary-small s4"
+				type="button"
+				@click.stop.prevent="$router.push('/cart/')"
+			>
+				Перейти в корзину
+			</button>
+		</router-link>
+	</div>
+</template>
 
 <style lang="scss">
 .product-preview {

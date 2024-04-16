@@ -1,3 +1,19 @@
+<script>
+export default {
+	name: 'AppLoading',
+	props: {
+		isLoading: {
+			type: Boolean,
+			default: false
+		},
+		isLoadingLocal: {
+			type: Boolean,
+			default: false
+		}
+	}
+}
+</script>
+
 <template>
 	<div v-if="isLoading" class="loading">
 		<div class="loading__spinner-wrapper">
@@ -21,22 +37,6 @@
 		</div>
 	</div>
 </template>
-
-<script>
-export default {
-	name: 'AppLoading',
-	props: {
-		isLoading: {
-			type: Boolean,
-			default: false
-		},
-		isLoadingLocal: {
-			type: Boolean,
-			default: false
-		}
-	}
-}
-</script>
 
 <style lang="scss">
 /* stylelint-disable */

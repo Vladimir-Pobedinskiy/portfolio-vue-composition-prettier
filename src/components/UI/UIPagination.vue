@@ -1,48 +1,3 @@
-<template>
-	<div v-if="pageTotal > 1" class="pagination">
-		<button
-			class="pagination__btn btn-orange p1"
-			:disabled="currentPage === pageTotal || isLoading"
-			type="button"
-			@click.prevent="onMore"
-		>
-			Показать еще
-		</button>
-		<ul class="pagination__list" aria-label="Навигация по страницам">
-			<li v-if="currentPage !== 1" class="pagination__item" :class="{ disable: isLoading }">
-				<a class="pagination__link pagination__link--prev" href="#!" @click.prevent="onPrevious">
-					<UIIcon
-						icon-name="mdi-arrow-forward"
-						class-name="pagination__button-icon pagination__button--prev-icon"
-						width="22px"
-						height="22px"
-					/>
-				</a>
-			</li>
-			<li v-for="(page, i) in croppedPages" :key="i" class="pagination__item" :class="{ disable: isLoading }">
-				<a
-					class="pagination__link"
-					:class="{ disable: page !== currentPage, active: page === '...' || page === currentPage }"
-					href="#!"
-					@click.prevent="onPage(page)"
-				>
-					{{ page }}
-				</a>
-			</li>
-			<li v-if="currentPage !== pageTotal" class="pagination__item" :class="{ disable: isLoading }">
-				<a class="pagination__link pagination__link--next" href="#!" @click.prevent="onNext">
-					<UIIcon
-						icon-name="mdi-arrow-forward"
-						class-name="pagination__button-icon pagination__button--next-icon"
-						width="22px"
-						height="22px"
-					/>
-				</a>
-			</li>
-		</ul>
-	</div>
-</template>
-
 <script>
 import { toRefs, computed } from 'vue'
 import { useStore } from 'vuex'
@@ -124,6 +79,51 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div v-if="pageTotal > 1" class="pagination">
+		<button
+			class="pagination__btn btn-orange p1"
+			:disabled="currentPage === pageTotal || isLoading"
+			type="button"
+			@click.prevent="onMore"
+		>
+			Показать еще
+		</button>
+		<ul class="pagination__list" aria-label="Навигация по страницам">
+			<li v-if="currentPage !== 1" class="pagination__item" :class="{ disable: isLoading }">
+				<a class="pagination__link pagination__link--prev" href="#!" @click.prevent="onPrevious">
+					<UIIcon
+						icon-name="mdi-arrow-forward"
+						class-name="pagination__button-icon pagination__button--prev-icon"
+						width="22px"
+						height="22px"
+					/>
+				</a>
+			</li>
+			<li v-for="(page, i) in croppedPages" :key="i" class="pagination__item" :class="{ disable: isLoading }">
+				<a
+					class="pagination__link"
+					:class="{ disable: page !== currentPage, active: page === '...' || page === currentPage }"
+					href="#!"
+					@click.prevent="onPage(page)"
+				>
+					{{ page }}
+				</a>
+			</li>
+			<li v-if="currentPage !== pageTotal" class="pagination__item" :class="{ disable: isLoading }">
+				<a class="pagination__link pagination__link--next" href="#!" @click.prevent="onNext">
+					<UIIcon
+						icon-name="mdi-arrow-forward"
+						class-name="pagination__button-icon pagination__button--next-icon"
+						width="22px"
+						height="22px"
+					/>
+				</a>
+			</li>
+		</ul>
+	</div>
+</template>
 
 <style lang="scss">
 .pagination {

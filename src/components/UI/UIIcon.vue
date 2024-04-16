@@ -1,7 +1,3 @@
-<template>
-	<Icon :icon="iconName" :class="className" :width="width" :height="height" />
-</template>
-
 <script>
 import { Icon } from '@iconify/vue'
 export default {
@@ -27,3 +23,7 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<Icon :icon="iconName" :class="className" :width="width" :height="height" />
+</template>

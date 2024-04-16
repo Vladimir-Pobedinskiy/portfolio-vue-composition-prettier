@@ -1,40 +1,3 @@
-<template>
-	<div class="catalog-filters">
-		<div v-if="!isDesktop" class="catalog-filters__btn-wrapper">
-			<button class="catalog-filters__btn btn btn-small" type="button" @click="toggleState('filters')">
-				Открыть фильтры
-			</button>
-		</div>
-
-		<div ref="filtersContent" class="catalog-filters__content" :class="{ active: isOpen === 'filters' && !isDesktop }">
-			<div class="catalog-filters__content-inner">
-				<div v-if="!isDesktop" class="catalog-filters__content-top">
-					<p class="catalog-filters__content-title h4">Все фильтры</p>
-					<button class="catalog-filters__close-btn" aria-label="Закрыть фильтры" @click="toggleState('filters')">
-						<UIIcon icon-name="mdi-close" class-name="icon-close" width="32px" height="32px" />
-					</button>
-				</div>
-				<div class="catalog-filters__filters-inner">
-					<UIAccordion key="filtersAccordion" :is-only-one-open="false" init-item-open="all" :is-caret-icon="true">
-						<UIAccordionItem>
-							<template #header>
-								<div class="filters-title h4">Цена</div>
-							</template>
-							<template #content>
-								<CatalogRange :range="range" />
-							</template>
-						</UIAccordionItem>
-
-						<CatalogFiltersGroup v-for="(filtersGroup, i) in filters" :key="i" :filters="filtersGroup" />
-					</UIAccordion>
-
-					<CatalogFiltersButtons :products-amount="productsAmount" />
-				</div>
-			</div>
-		</div>
-	</div>
-</template>
-
 <script>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
@@ -83,6 +46,43 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="catalog-filters">
+		<div v-if="!isDesktop" class="catalog-filters__btn-wrapper">
+			<button class="catalog-filters__btn btn btn-small" type="button" @click="toggleState('filters')">
+				Открыть фильтры
+			</button>
+		</div>
+
+		<div ref="filtersContent" class="catalog-filters__content" :class="{ active: isOpen === 'filters' && !isDesktop }">
+			<div class="catalog-filters__content-inner">
+				<div v-if="!isDesktop" class="catalog-filters__content-top">
+					<p class="catalog-filters__content-title h4">Все фильтры</p>
+					<button class="catalog-filters__close-btn" aria-label="Закрыть фильтры" @click="toggleState('filters')">
+						<UIIcon icon-name="mdi-close" class-name="icon-close" width="32px" height="32px" />
+					</button>
+				</div>
+				<div class="catalog-filters__filters-inner">
+					<UIAccordion key="filtersAccordion" :is-only-one-open="false" init-item-open="all" :is-caret-icon="true">
+						<UIAccordionItem>
+							<template #header>
+								<div class="filters-title h4">Цена</div>
+							</template>
+							<template #content>
+								<CatalogRange :range="range" />
+							</template>
+						</UIAccordionItem>
+
+						<CatalogFiltersGroup v-for="(filtersGroup, i) in filters" :key="i" :filters="filtersGroup" />
+					</UIAccordion>
+
+					<CatalogFiltersButtons :products-amount="productsAmount" />
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
 
 <style lang="scss">
 .catalog-filters {

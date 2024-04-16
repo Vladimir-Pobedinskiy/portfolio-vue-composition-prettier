@@ -1,3 +1,15 @@
+<script>
+export default {
+	name: 'UIBreadcrumbs',
+	props: {
+		breadcrumbs: {
+			type: Array,
+			required: true
+		}
+	}
+}
+</script>
+
 <template>
 	<div class="breadcrumbs-wrapper">
 		<div class="breadcrumbs-wrap">
@@ -29,18 +41,6 @@
 		</div>
 	</div>
 </template>
-
-<script>
-export default {
-	name: 'UIBreadcrumbs',
-	props: {
-		breadcrumbs: {
-			type: Array,
-			required: true
-		}
-	}
-}
-</script>
 
 <style lang="scss">
 .breadcrumbs-wrapper {

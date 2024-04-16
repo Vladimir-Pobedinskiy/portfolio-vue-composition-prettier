@@ -1,3 +1,18 @@
+<script>
+import UIAccordionItem from '@/components/UI/Accordion/UIAccordionItem'
+import CatalogFiltersOption from '@/components/Catalog/FiltersOption'
+export default {
+	name: 'CatalogFiltersGroup',
+	components: { UIAccordionItem, CatalogFiltersOption },
+	props: {
+		filters: {
+			type: Object,
+			required: true
+		}
+	}
+}
+</script>
+
 <template>
 	<UIAccordionItem>
 		<template #header>
@@ -14,21 +29,6 @@
 		</template>
 	</UIAccordionItem>
 </template>
-
-<script>
-import UIAccordionItem from '@/components/UI/Accordion/UIAccordionItem'
-import CatalogFiltersOption from '@/components/Catalog/FiltersOption'
-export default {
-	name: 'CatalogFiltersGroup',
-	components: { UIAccordionItem, CatalogFiltersOption },
-	props: {
-		filters: {
-			type: Object,
-			required: true
-		}
-	}
-}
-</script>
 
 <style lang="scss">
 .option-wrapper {

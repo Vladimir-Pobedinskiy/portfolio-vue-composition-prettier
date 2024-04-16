@@ -1,3 +1,15 @@
+<script>
+export default {
+	name: 'HeroCard',
+	props: {
+		hero: {
+			type: Object,
+			required: true
+		}
+	}
+}
+</script>
+
 <template>
 	<div class="hero-card">
 		<div class="hero-card__img-wrapper">
@@ -16,18 +28,6 @@
 		<router-link class="hero-card__link s4" :to="`${$route.path}/${hero.alias}`">See more info</router-link>
 	</div>
 </template>
-
-<script>
-export default {
-	name: 'HeroCard',
-	props: {
-		hero: {
-			type: Object,
-			required: true
-		}
-	}
-}
-</script>
 
 <style lang="scss">
 .hero-card {

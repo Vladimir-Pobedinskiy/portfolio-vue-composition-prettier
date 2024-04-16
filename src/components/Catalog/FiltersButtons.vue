@@ -1,26 +1,3 @@
-<template>
-	<div class="filters-buttons">
-		<button
-			v-if="isShowReset"
-			class="filters-buttons__btn-clear btn-secondary"
-			type="button"
-			:disabled="isLoading"
-			@click="resetFilters"
-		>
-			Очистить фильтры
-		</button>
-		<button
-			v-if="!isDesktop"
-			class="filters-buttons__btn-show-more btn"
-			type="button"
-			:disabled="isLoading"
-			@click="toggleState(isOpen)"
-		>
-			{{ productsQuantity }}
-		</button>
-	</div>
-</template>
-
 <script>
 import { toRefs, computed } from 'vue'
 import { useStore } from 'vuex'
@@ -84,6 +61,29 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="filters-buttons">
+		<button
+			v-if="isShowReset"
+			class="filters-buttons__btn-clear btn-secondary"
+			type="button"
+			:disabled="isLoading"
+			@click="resetFilters"
+		>
+			Очистить фильтры
+		</button>
+		<button
+			v-if="!isDesktop"
+			class="filters-buttons__btn-show-more btn"
+			type="button"
+			:disabled="isLoading"
+			@click="toggleState(isOpen)"
+		>
+			{{ productsQuantity }}
+		</button>
+	</div>
+</template>
 
 <style lang="scss">
 .filters-buttons {

@@ -1,3 +1,18 @@
+<script>
+import UITabs from '@/components/UI/Tabs/UITabs'
+import UITabPanel from '@/components/UI/Tabs/UITabPanel'
+export default {
+	name: 'UIViewTabs',
+	components: { UITabs, UITabPanel },
+	props: {
+		tabsNav: {
+			type: Array,
+			required: true
+		}
+	}
+}
+</script>
+
 <template>
 	<UITabs :tabs-nav="tabsNav">
 		<UITabPanel class-name="tabs-panel" panel-name="wizard">
@@ -95,21 +110,6 @@
 		</UITabPanel>
 	</UITabs>
 </template>
-
-<script>
-import UITabs from '@/components/UI/Tabs/UITabs'
-import UITabPanel from '@/components/UI/Tabs/UITabPanel'
-export default {
-	name: 'UIViewTabs',
-	components: { UITabs, UITabPanel },
-	props: {
-		tabsNav: {
-			type: Array,
-			required: true
-		}
-	}
-}
-</script>
 
 <style lang="scss">
 .tabs-panel {

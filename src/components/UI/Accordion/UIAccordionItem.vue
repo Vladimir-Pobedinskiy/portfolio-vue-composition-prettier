@@ -1,30 +1,3 @@
-<template>
-	<div ref="accordionItem" class="accordion-item">
-		<div class="accordion-item__header h4" @click="onAccordionItem($refs.accordionItem, $refs.content)">
-			<slot name="header" />
-			<div class="accordion-item__header-icon-wrapper">
-				<UIIcon
-					v-if="!isCaretIcon"
-					icon-name="mdi-close"
-					class-name="accordion-item__header-icon icon-close"
-					width="32px"
-					height="32px"
-				/>
-				<UIIcon
-					v-else
-					icon-name="mdi-chevron-up"
-					class-name="accordion-item__header-icon-caret icon-close"
-					width="44px"
-					height="44px"
-				/>
-			</div>
-		</div>
-
-		<div v-if="$slots.content" ref="content" class="accordion-item__content">
-			<slot name="content" />
-		</div>
-	</div>
-</template>
 <script>
 import { ref, onMounted, inject } from 'vue'
 export default {
@@ -93,6 +66,34 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div ref="accordionItem" class="accordion-item">
+		<div class="accordion-item__header h4" @click="onAccordionItem($refs.accordionItem, $refs.content)">
+			<slot name="header" />
+			<div class="accordion-item__header-icon-wrapper">
+				<UIIcon
+					v-if="!isCaretIcon"
+					icon-name="mdi-close"
+					class-name="accordion-item__header-icon icon-close"
+					width="32px"
+					height="32px"
+				/>
+				<UIIcon
+					v-else
+					icon-name="mdi-chevron-up"
+					class-name="accordion-item__header-icon-caret icon-close"
+					width="44px"
+					height="44px"
+				/>
+			</div>
+		</div>
+
+		<div v-if="$slots.content" ref="content" class="accordion-item__content">
+			<slot name="content" />
+		</div>
+	</div>
+</template>
 
 <style lang="scss">
 .accordion-item {

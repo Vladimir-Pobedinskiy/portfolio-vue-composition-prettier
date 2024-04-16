@@ -1,31 +1,3 @@
-<template>
-	<VueFinalModal
-		class="modal-container"
-		content-class="modal-content"
-		overlay-class="modal-overlay"
-		:overlay-transition="customOverlayTransition"
-		:content-transition="customContentTransition"
-		:lock-scroll="false"
-		:modal-id="modalSettings.name"
-		:click-to-close="modalSettings.clickToClose"
-		:esc-to-close="modalSettings.escToClose"
-		:hide-overlay="modalSettings.hideOverlay"
-		@before-open="handleBeforeOpen"
-		@closed="handleClosed"
-	>
-		<div class="modal-inner">
-			<button class="modal-close-btn" aria-label="Закрыть модальное окно" @click="$vfm.closeAll">
-				<UIIcon icon-name="mdi-close" class-name="icon-close" width="32px" height="32px" />
-			</button>
-			<div v-if="$slots.header" class="modal-header">
-				<slot name="header" />
-			</div>
-			<div v-if="$slots.body" class="modal-body">
-				<slot name="body" />
-			</div>
-		</div>
-	</VueFinalModal>
-</template>
 <script>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
@@ -78,6 +50,35 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<VueFinalModal
+		class="modal-container"
+		content-class="modal-content"
+		overlay-class="modal-overlay"
+		:overlay-transition="customOverlayTransition"
+		:content-transition="customContentTransition"
+		:lock-scroll="false"
+		:modal-id="modalSettings.name"
+		:click-to-close="modalSettings.clickToClose"
+		:esc-to-close="modalSettings.escToClose"
+		:hide-overlay="modalSettings.hideOverlay"
+		@before-open="handleBeforeOpen"
+		@closed="handleClosed"
+	>
+		<div class="modal-inner">
+			<button class="modal-close-btn" aria-label="Закрыть модальное окно" @click="$vfm.closeAll">
+				<UIIcon icon-name="mdi-close" class-name="icon-close" width="32px" height="32px" />
+			</button>
+			<div v-if="$slots.header" class="modal-header">
+				<slot name="header" />
+			</div>
+			<div v-if="$slots.body" class="modal-body">
+				<slot name="body" />
+			</div>
+		</div>
+	</VueFinalModal>
+</template>
 
 <style lang="scss">
 .vfm.modal-container {

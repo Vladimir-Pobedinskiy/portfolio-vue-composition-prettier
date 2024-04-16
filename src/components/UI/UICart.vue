@@ -1,16 +1,3 @@
-<template>
-	<router-link class="ui-cart" to="/cart" aria-label="Корзина">
-		<div class="count-container">
-			<transition name="bounce" mode="out-in">
-				<div v-if="count > 0" class="count marker">
-					<span>{{ count }}</span>
-				</div>
-			</transition>
-		</div>
-		<UIIcon icon-name="mdi-cart" class-name="ui-cart__icon" width="26px" height="26px" />
-	</router-link>
-</template>
-
 <script>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
@@ -26,6 +13,19 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<router-link class="ui-cart" to="/cart" aria-label="Корзина">
+		<div class="count-container">
+			<transition name="bounce" mode="out-in">
+				<div v-if="count > 0" class="count marker">
+					<span>{{ count }}</span>
+				</div>
+			</transition>
+		</div>
+		<UIIcon icon-name="mdi-cart" class-name="ui-cart__icon" width="26px" height="26px" />
+	</router-link>
+</template>
 
 <style lang="scss">
 .ui-cart {

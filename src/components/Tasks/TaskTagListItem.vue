@@ -1,13 +1,3 @@
-<template>
-	<div
-		class="task-tag-list-item"
-		:class="{ selected: tag.selected && !isPreview, isPreview: isPreview }"
-		@click="handleSelectedTag"
-	>
-		{{ tag.title }}
-	</div>
-</template>
-
 <script>
 import { toRefs } from 'vue'
 export default {
@@ -35,6 +25,16 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div
+		class="task-tag-list-item"
+		:class="{ selected: tag.selected && !isPreview, isPreview: isPreview }"
+		@click="handleSelectedTag"
+	>
+		{{ tag.title }}
+	</div>
+</template>
 
 <style lang="scss">
 .task-tag-list-item {

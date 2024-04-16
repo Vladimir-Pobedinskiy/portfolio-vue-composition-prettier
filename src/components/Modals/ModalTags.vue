@@ -1,41 +1,3 @@
-<template>
-	<div class="modal-tags">
-		<teleport to="body">
-			<UIModal v-model="showModal" :modal-settings="modalSettings">
-				<template #header>
-					<span class="modal-tags-title s2">Выберите теги</span>
-				</template>
-				<template #body>
-					<TaskTagList :tags="tags" @handleSelectedTags="handleSelectedTags" />
-					<button
-						class="modal-tags-btn-save btn btn-small"
-						:disabled="!selectedTags.length"
-						type="button"
-						@click="editSelectedTags"
-					>
-						Сохранить
-					</button>
-				</template>
-			</UIModal>
-		</teleport>
-
-		<button
-			:class="currentTags.length ? 'modal-tags-btn-open' : 'btn btn-small'"
-			aria-label="Открыть модальное окно"
-			@click="openModal"
-		>
-			<UIIcon
-				v-if="currentTags.length"
-				icon-name="mdi-edit-outline"
-				class-name="icon-edit"
-				width="32px"
-				height="32px"
-			/>
-			<span v-else class="p3">Добавить теги</span>
-		</button>
-	</div>
-</template>
-
 <script>
 import { ref } from 'vue'
 import UIModal from '@/components/UI/UIModal'
@@ -94,6 +56,44 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="modal-tags">
+		<teleport to="body">
+			<UIModal v-model="showModal" :modal-settings="modalSettings">
+				<template #header>
+					<span class="modal-tags-title s2">Выберите теги</span>
+				</template>
+				<template #body>
+					<TaskTagList :tags="tags" @handleSelectedTags="handleSelectedTags" />
+					<button
+						class="modal-tags-btn-save btn btn-small"
+						:disabled="!selectedTags.length"
+						type="button"
+						@click="editSelectedTags"
+					>
+						Сохранить
+					</button>
+				</template>
+			</UIModal>
+		</teleport>
+
+		<button
+			:class="currentTags.length ? 'modal-tags-btn-open' : 'btn btn-small'"
+			aria-label="Открыть модальное окно"
+			@click="openModal"
+		>
+			<UIIcon
+				v-if="currentTags.length"
+				icon-name="mdi-edit-outline"
+				class-name="icon-edit"
+				width="32px"
+				height="32px"
+			/>
+			<span v-else class="p3">Добавить теги</span>
+		</button>
+	</div>
+</template>
 
 <style lang="scss">
 .modal-tags-btn-open {

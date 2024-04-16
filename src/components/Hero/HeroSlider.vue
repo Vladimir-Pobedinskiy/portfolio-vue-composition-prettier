@@ -1,39 +1,3 @@
-<template>
-	<section class="hero-swiper offset">
-		<div class="hero-swiper__top">
-			<h2 class="hero-swiper__title h1">Герои</h2>
-			<div class="hero-swiper__navigation-wrapper">
-				<span class="visually-hidden">Стрелки навигации по слайдеру</span>
-				<button class="hero-swiper__button-prev swiper-button-prev" type="button">
-					<span class="visually-hidden">К предыдущему слайду</span>
-					<UIIcon
-						icon-name="mdi-arrow-forward"
-						class-name="hero-swiper__button-icon hero-swiper__button--prev-icon"
-						width="34px"
-						height="34px"
-					/>
-				</button>
-				<button class="hero-swiper__button-next swiper-button-next" type="button">
-					<span class="visually-hidden">К следующему слайду</span>
-					<UIIcon
-						icon-name="mdi-arrow-forward"
-						class-name="hero-swiper__button-icon hero-swiper__button--next-icon"
-						width="34px"
-						height="34px"
-					/>
-				</button>
-			</div>
-		</div>
-		<div class="hero-swiper__inner">
-			<UISlider :modules="modules" :swiper-options="swiperOptions" class-name="hero-swiper__list">
-				<swiper-slide v-for="(hero, i) in heroList" :key="i" class="hero-swiper__slide">
-					<HeroCard :hero="hero" />
-				</swiper-slide>
-			</UISlider>
-		</div>
-	</section>
-</template>
-
 <script>
 import { SwiperSlide } from 'swiper/vue'
 import { Navigation, Autoplay, Keyboard } from 'swiper/modules'
@@ -102,6 +66,42 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<section class="hero-swiper offset">
+		<div class="hero-swiper__top">
+			<h2 class="hero-swiper__title h1">Герои</h2>
+			<div class="hero-swiper__navigation-wrapper">
+				<span class="visually-hidden">Стрелки навигации по слайдеру</span>
+				<button class="hero-swiper__button-prev swiper-button-prev" type="button">
+					<span class="visually-hidden">К предыдущему слайду</span>
+					<UIIcon
+						icon-name="mdi-arrow-forward"
+						class-name="hero-swiper__button-icon hero-swiper__button--prev-icon"
+						width="34px"
+						height="34px"
+					/>
+				</button>
+				<button class="hero-swiper__button-next swiper-button-next" type="button">
+					<span class="visually-hidden">К следующему слайду</span>
+					<UIIcon
+						icon-name="mdi-arrow-forward"
+						class-name="hero-swiper__button-icon hero-swiper__button--next-icon"
+						width="34px"
+						height="34px"
+					/>
+				</button>
+			</div>
+		</div>
+		<div class="hero-swiper__inner">
+			<UISlider :modules="modules" :swiper-options="swiperOptions" class-name="hero-swiper__list">
+				<swiper-slide v-for="(hero, i) in heroList" :key="i" class="hero-swiper__slide">
+					<HeroCard :hero="hero" />
+				</swiper-slide>
+			</UISlider>
+		</div>
+	</section>
+</template>
 
 <style lang="scss">
 .hero-swiper {

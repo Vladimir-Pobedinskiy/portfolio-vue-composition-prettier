@@ -1,20 +1,3 @@
-<template>
-	<div class="tabs">
-		<ul class="tabs-nav">
-			<li v-for="(tabBtn, i) in tabsNav" :key="i" class="tabs-nav__item" @click="onTabBtn(tabBtn)">
-				<button
-					class="tabs-nav__btn btn-secondary btn-secondary-small"
-					:class="{ active: tabBtn.selected }"
-					type="button"
-				>
-					{{ tabBtn.title }}
-				</button>
-			</li>
-		</ul>
-		<slot />
-	</div>
-</template>
-
 <script>
 import { ref, provide, toRefs, readonly } from 'vue'
 export default {
@@ -61,6 +44,23 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="tabs">
+		<ul class="tabs-nav">
+			<li v-for="(tabBtn, i) in tabsNav" :key="i" class="tabs-nav__item" @click="onTabBtn(tabBtn)">
+				<button
+					class="tabs-nav__btn btn-secondary btn-secondary-small"
+					:class="{ active: tabBtn.selected }"
+					type="button"
+				>
+					{{ tabBtn.title }}
+				</button>
+			</li>
+		</ul>
+		<slot />
+	</div>
+</template>
 
 <style lang="scss">
 .tabs-nav {

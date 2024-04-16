@@ -1,9 +1,3 @@
-<template>
-	<div class="catalog-feed">
-		<ProductPreview v-for="(product, i) in products" :key="i" :product="product" />
-	</div>
-</template>
-
 <script>
 import ProductPreview from '@/components/Product/Preview'
 export default {
@@ -17,6 +11,12 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="catalog-feed">
+		<ProductPreview v-for="(product, i) in products" :key="i" :product="product" />
+	</div>
+</template>
 
 <style lang="scss">
 .catalog-feed {

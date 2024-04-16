@@ -1,20 +1,3 @@
-<template>
-	<label class="control-label" :class="{ disabled: isLoading || option.disabled }">
-		<input
-			v-model="model"
-			:value="option.value"
-			class="control-input visually-hidden"
-			:class="{ selected: option.selected }"
-			type="checkbox"
-			:disabled="isLoading || option.disabled"
-		/>
-		<span class="control-icon-span">
-			<UIIcon class="control-icon-span-icon" icon-name="mdi-check" class-name="icon-close" width="8px" height="8px" />
-		</span>
-		<span class="control-title hf1">{{ option.title }}</span>
-	</label>
-</template>
-
 <script>
 import { computed, toRefs } from 'vue'
 import { useStore } from 'vuex'
@@ -81,6 +64,23 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<label class="control-label" :class="{ disabled: isLoading || option.disabled }">
+		<input
+			v-model="model"
+			:value="option.value"
+			class="control-input visually-hidden"
+			:class="{ selected: option.selected }"
+			type="checkbox"
+			:disabled="isLoading || option.disabled"
+		/>
+		<span class="control-icon-span">
+			<UIIcon class="control-icon-span-icon" icon-name="mdi-check" class-name="icon-close" width="8px" height="8px" />
+		</span>
+		<span class="control-title hf1">{{ option.title }}</span>
+	</label>
+</template>
 
 <style lang="scss">
 .control-label {

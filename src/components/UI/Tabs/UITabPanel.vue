@@ -1,9 +1,3 @@
-<template>
-	<div v-show="isActive" :class="[className, { active: isActive }]">
-		<slot />
-	</div>
-</template>
-
 <script>
 import { ref, toRefs, inject, watch } from 'vue'
 export default {
@@ -46,3 +40,9 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div v-show="isActive" :class="[className, { active: isActive }]">
+		<slot />
+	</div>
+</template>

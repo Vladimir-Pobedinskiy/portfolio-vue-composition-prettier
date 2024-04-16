@@ -1,3 +1,21 @@
+<script>
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
+export default {
+	name: 'AppFooter',
+	setup() {
+		const store = useStore()
+		const navLinks = computed(() => store.getters.navLinks)
+		const currentYear = ref(computed(() => new Date().getFullYear()))
+
+		return {
+			navLinks,
+			currentYear
+		}
+	}
+}
+</script>
+
 <template>
 	<footer class="footer">
 		<div class="container">
@@ -16,24 +34,6 @@
 		</div>
 	</footer>
 </template>
-
-<script>
-import { ref, computed } from 'vue'
-import { useStore } from 'vuex'
-export default {
-	name: 'AppFooter',
-	setup() {
-		const store = useStore()
-		const navLinks = computed(() => store.getters.navLinks)
-		const currentYear = ref(computed(() => new Date().getFullYear()))
-
-		return {
-			navLinks,
-			currentYear
-		}
-	}
-}
-</script>
 
 <style lang="scss">
 .footer {

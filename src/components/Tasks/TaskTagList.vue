@@ -1,15 +1,3 @@
-<template>
-	<div class="task-tag-list" :class="{ 'not-preview': !isPreview }">
-		<TaskTagListItem
-			v-for="tag in tags"
-			:key="tag"
-			:tag="tag"
-			:is-preview="isPreview"
-			@handleSelectedTag="handleSelectedTag"
-		/>
-	</div>
-</template>
-
 <script>
 import { ref, toRefs } from 'vue'
 import TaskTagListItem from '@/components/Tasks/TaskTagListItem'
@@ -59,6 +47,18 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="task-tag-list" :class="{ 'not-preview': !isPreview }">
+		<TaskTagListItem
+			v-for="tag in tags"
+			:key="tag"
+			:tag="tag"
+			:is-preview="isPreview"
+			@handleSelectedTag="handleSelectedTag"
+		/>
+	</div>
+</template>
 
 <style lang="scss">
 .task-tag-list {

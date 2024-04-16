@@ -1,11 +1,3 @@
-<template>
-	<UIMarquee :marquee-settings="marqueeSettings">
-		<div v-for="item in marqueeImages" :key="item" class="hero-img-wrapper">
-			<img :src="`${item.imgUrl}`" :alt="`${item.title}`" />
-		</div>
-	</UIMarquee>
-</template>
-
 <script>
 import UIMarquee from '@/components/UI/UIMarquee'
 export default {
@@ -34,6 +26,14 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<UIMarquee :marquee-settings="marqueeSettings">
+		<div v-for="item in marqueeImages" :key="item" class="hero-img-wrapper">
+			<img :src="`${item.imgUrl}`" :alt="`${item.title}`" />
+		</div>
+	</UIMarquee>
+</template>
 
 <style lang="scss">
 .hero-img-wrapper {

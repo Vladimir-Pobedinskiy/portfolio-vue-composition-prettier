@@ -1,14 +1,14 @@
-<template>
-	<router-link to="/personal-account" class="ui-user" aria-label="В Личный кабинет">
-		<UIIcon icon-name="mdi-user" class-name="ui-user__icon" width="26px" height="26px" />
-	</router-link>
-</template>
-
 <script>
 export default {
 	name: 'UIUser'
 }
 </script>
+
+<template>
+	<router-link to="/personal-account" class="ui-user" aria-label="В Личный кабинет">
+		<UIIcon icon-name="mdi-user" class-name="ui-user__icon" width="26px" height="26px" />
+	</router-link>
+</template>
 
 <style lang="scss">
 .ui-user {

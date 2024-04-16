@@ -1,36 +1,3 @@
-<template>
-	<div class="range-wrapper">
-		<div class="slider-container">
-			<div id="slider-range" ref="sliderRange"></div>
-		</div>
-		<div class="label-wrapper">
-			<label class="input-label">
-				<input
-					v-model="minRange"
-					class="control-input-small input-small"
-					type="number"
-					name="from"
-					placeholder=" "
-					:disabled="isLoading"
-					@change="updateSlider"
-				/>
-			</label>
-
-			<label class="input-label">
-				<input
-					v-model="maxRange"
-					class="control-input-small input-small"
-					type="number"
-					name="from"
-					placeholder=" "
-					:disabled="isLoading"
-					@change="updateSlider"
-				/>
-			</label>
-		</div>
-	</div>
-</template>
-
 <script>
 import { ref, toRefs, computed, watch, onMounted } from 'vue'
 import { useStore } from 'vuex'
@@ -140,6 +107,39 @@ export default {
 	}
 }
 </script>
+
+<template>
+	<div class="range-wrapper">
+		<div class="slider-container">
+			<div id="slider-range" ref="sliderRange"></div>
+		</div>
+		<div class="label-wrapper">
+			<label class="input-label">
+				<input
+					v-model="minRange"
+					class="control-input-small input-small"
+					type="number"
+					name="from"
+					placeholder=" "
+					:disabled="isLoading"
+					@change="updateSlider"
+				/>
+			</label>
+
+			<label class="input-label">
+				<input
+					v-model="maxRange"
+					class="control-input-small input-small"
+					type="number"
+					name="from"
+					placeholder=" "
+					:disabled="isLoading"
+					@change="updateSlider"
+				/>
+			</label>
+		</div>
+	</div>
+</template>
 
 <style lang="scss">
 .range-wrapper {
