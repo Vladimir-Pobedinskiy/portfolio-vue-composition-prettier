@@ -119,9 +119,11 @@ export default {
 						</form>
 					</div>
 
-					<div v-auto-animate="{ duration: 200 }" class="tasks-view__task-list-wrapper">
+					<div v-auto-animate="{ duration: 300 }" class="tasks-view__task-list-wrapper">
 						<template v-if="taskList.length">
-							<TaskList :task-list="taskList" @deleteCurrentTask="deleteCurrentTask" />
+							<div class="tasks-view__task-list-box">
+								<TaskList :task-list="taskList" @deleteCurrentTask="deleteCurrentTask" />
+							</div>
 						</template>
 						<template v-else>
 							<p class="h3">Список задач пуст! Введите вашу первую задачу!</p>
