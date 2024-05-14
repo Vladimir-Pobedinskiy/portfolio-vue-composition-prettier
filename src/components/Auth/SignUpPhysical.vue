@@ -1,5 +1,5 @@
 <script>
-import { ref, computed } from 'vue'
+import { reactive, computed } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { Form as VeeValidateForm, Field } from 'vee-validate'
@@ -19,15 +19,13 @@ export default {
 	setup() {
 		const store = useStore()
 		const router = useRouter()
-		const form = ref({
-			user: {
-				surname: '',
-				name: '',
-				tel: '',
-				email: '',
-				password: '',
-				repeatPassword: ''
-			}
+		const form = reactive({
+			surname: '',
+			name: '',
+			tel: '',
+			email: '',
+			password: '',
+			repeatPassword: ''
 		})
 		const schema = Yup.object().shape({
 			surname: Yup.string().nullable(),
@@ -55,16 +53,16 @@ export default {
 				startLoading()
 				// await axios.post('/api/registration/', { ...this.form })
 				const { data, error } = await supabase.auth.signUp({
-					email: form.value.user.email,
-					password: form.value.user.password
+					email: form.email,
+					password: form.password
 				})
 				if (error) throw error
-				form.value.user.surname = ''
-				form.value.user.name = ''
-				form.value.user.tel = ''
-				form.value.user.email = ''
-				form.value.user.password = ''
-				form.value.user.repeatPassword = ''
+				form.surname = ''
+				form.name = ''
+				form.tel = ''
+				form.email = ''
+				form.password = ''
+				form.repeatPassword = ''
 				actions.resetForm()
 				setUser(data.user)
 				router.push({ name: 'personal-account-view' })
@@ -115,7 +113,7 @@ export default {
 				<div class="sign-up__form-label-wrap label-wrap" :class="{ error: errors.surname }">
 					<label class="label">
 						<Field
-							v-model.trim="form.user.surname"
+							v-model.trim="form.surname"
 							class="label__input l-input"
 							type="text"
 							name="surname"
@@ -129,7 +127,7 @@ export default {
 			<div class="sign-up__form-item">
 				<div class="sign-up__form-label-wrap label-wrap" :class="{ error: errors.name }">
 					<label class="label">
-						<Field v-model.trim="form.user.name" class="label__input l-input" type="text" name="name" placeholder=" " />
+						<Field v-model.trim="form.name" class="label__input l-input" type="text" name="name" placeholder=" " />
 						<span class="label__input-title l-input">Имя</span>
 						<span class="error-message marker">{{ errors.name }}</span>
 					</label>
@@ -139,7 +137,7 @@ export default {
 				<div class="sign-up__form-label-wrap label-wrap" :class="{ error: errors.tel }">
 					<label class="label">
 						<Field
-							v-model="form.user.tel"
+							v-model="form.tel"
 							v-imask="{ mask: '+7 (000) 000-00-00' }"
 							class="label__input l-input"
 							type="tel"
@@ -154,7 +152,7 @@ export default {
 			<div class="sign-up__form-item">
 				<div class="sign-up__form-label-wrap label-wrap" :class="{ error: errors.email }">
 					<label class="label">
-						<Field v-model="form.user.email" class="label__input l-input" type="email" name="email" placeholder=" " />
+						<Field v-model="form.email" class="label__input l-input" type="email" name="email" placeholder=" " />
 						<span class="label__input-title l-input">Электронная почта</span>
 						<span class="error-message marker">{{ errors.email }}</span>
 					</label>
@@ -164,7 +162,7 @@ export default {
 				<div class="sign-up__form-label-wrap label-wrap" :class="{ error: errors.password }">
 					<label class="label">
 						<Field
-							v-model="form.user.password"
+							v-model="form.password"
 							class="label__input l-input"
 							type="password"
 							name="password"
@@ -202,7 +200,7 @@ export default {
 				<div class="sign-up__form-label-wrap label-wrap" :class="{ error: errors.repeatPassword }">
 					<label class="label">
 						<Field
-							v-model="form.user.repeatPassword"
+							v-model="form.repeatPassword"
 							class="label__input l-input"
 							type="password"
 							name="repeatPassword"

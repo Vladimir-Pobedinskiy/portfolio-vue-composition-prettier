@@ -1,5 +1,5 @@
 <script>
-import { ref, computed } from 'vue'
+import { reactive, computed } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { Form as VeeValidateForm, Field } from 'vee-validate'
@@ -19,11 +19,9 @@ export default {
 	setup() {
 		const store = useStore()
 		const router = useRouter()
-		const form = ref({
-			user: {
-				email: '',
-				password: ''
-			}
+		const form = reactive({
+			email: '',
+			password: ''
 		})
 		const schema = Yup.object().shape({
 			email: Yup.string().required('Email обязателен для заполнения').email('Неверный формат электронной почты'),
@@ -43,12 +41,12 @@ export default {
 				startLoading()
 				// await axios.post('/api/login/', { ...this.form })
 				const { data, error } = await supabase.auth.signInWithPassword({
-					email: form.value.user.email,
-					password: form.value.user.password
+					email: form.email,
+					password: form.password
 				})
 				if (error) throw error
-				form.value.user.email = ''
-				form.value.user.password = ''
+				form.email = ''
+				form.password = ''
 				actions.resetForm()
 				setUser(data.user)
 				router.push({ name: 'personal-account-view' })
@@ -91,7 +89,7 @@ export default {
 			<div class="sign-up__form-item">
 				<div class="sign-up__form-label-wrap label-wrap" :class="{ error: errors.email }">
 					<label class="label">
-						<Field v-model="form.user.email" class="label__input l-input" type="email" name="email" placeholder=" " />
+						<Field v-model="form.email" class="label__input l-input" type="email" name="email" placeholder=" " />
 						<span class="label__input-title l-input">Электронная почта</span>
 						<span class="error-message marker">{{ errors.email }}</span>
 					</label>
@@ -101,7 +99,7 @@ export default {
 				<div class="login__form-label-wrap label-wrap" :class="{ error: errors.password }">
 					<label class="label">
 						<Field
-							v-model="form.user.password"
+							v-model="form.password"
 							class="label__input l-input"
 							type="password"
 							name="password"
